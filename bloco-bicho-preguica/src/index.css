@@ -1,4 +1,10 @@
+/* src/index.css */
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+body {
+  @apply bg-gray-200; /* Exemplo de aplicação de classe do Tailwind */
+}
+
+/* Adicione mais classes conforme necessário */
