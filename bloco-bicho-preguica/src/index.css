@@ -4,7 +4,5 @@
 @import 'tailwindcss/utilities';
 
 body {
-  @apply bg-gray-200; /* Exemplo de aplicação de classe do Tailwind */
+  @apply bg-gray-200; 
 }
-
-/* Adicione mais classes conforme necessário */
