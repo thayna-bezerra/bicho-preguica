@@ -6,6 +6,7 @@ import abada from './assets/abada.png'
 import patrocinador from './assets/patrocinador.png'
 import menu from './assets/icon-menu.png'
 import sobre from './assets/sobre-nos.png'
+import bg from './assets/bg.png'
 
 export function App() {
   return (
@@ -85,6 +86,9 @@ export function App() {
 
       </div>
 
+
+      <img className="bg-cover h-screen w-screen" src={bg} alt="" />
+
       <div className='bg-yellow-bp h-auto flex flex-col justify-center items-center gap-5 p-4 mt-3'>
         <div className="bg-pink-bp h-auto flex flex-col justify-center items-center gap-5 p-4">
           <div>
@@ -93,7 +97,6 @@ export function App() {
             </p>
           </div>
           <div>
-            <img src="" alt="" />
           </div>
         </div>
 
