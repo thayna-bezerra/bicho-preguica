@@ -13,14 +13,43 @@ export function App() {
     <>
       <div className="bg-white p-4 flex items-center justify-between">
         <div>
-          <img className='w-28' src={logo} alt="logo-bicho-preguiça" />
+          <img className='w-28 md:w-20' src={logo} alt="logo-bicho-preguiça" />
         </div>
-        <div>
-          <img className='w-9' src={menu} alt="" />
+
+        <div> 
+          <span className="cursor-pointer md:hidden block">
+            <img src={menu} alt="icon menu"/>
+          </span>
         </div>
+        
+        <ul className="text-lg gap-10 font-bold text-yellow-bp md:mt-0 mt-[29px] tracking-1.3 text-uppercase md:flex md:items-center md:justify-around md:static absolute bg-white w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7">
+          <li className="mx-4 my-6 md:my-0">
+            <a href="#">
+              INÍCIO
+            </a>
+          </li>
+          <li className="mx-4 my-6 md:my-0">
+            <a href="#">
+              VOTAÇÃO
+            </a>
+          </li>
+          <li className="mx-4 my-6 md:my-0">
+            <a href="#">
+              SOBRE NÓS
+            </a>
+          </li>
+          <li className="mx-4 my-6 md:my-0">
+            <a href="#">
+              GALERIA
+            </a>
+          </li>
+          <button className="uppercase bg-pink-bp text-white p-3">
+            Cadastre-se
+          </button>
+        </ul>
       </div>
 
-      <div className='h-36'>
+      <div className=' md:h-auto md:w-auto'>
         <img className='object-cover w-full h-full' src={banner} alt="banner" />
       </div>
 
@@ -35,7 +64,7 @@ export function App() {
         </div>
 
         <div>
-          <div className="grid grid-cols-2 gap-x-10 gap-y-6">
+          <div className="md:flex md:flex-items grid grid-cols-2 gap-x-10 gap-y-6">
             <img src={abada} alt="abada1" />
             <img src={abada} alt="abada2" />
             <img src={abada} alt="abada3" />
@@ -48,21 +77,29 @@ export function App() {
             Confirmar escolha
           </button>
         </div>
+
       </div>
 
-      <div className="bg-pink-bp h-auto flex flex-col justify-center items-center gap-5 p-4">
-        <div>
-          <p className="uppercase text-lg font-bold text-white">
-            Patrocinadores oficiais
-          </p>
-        </div>
-        <div>
-          <div className="flex gap-2">
-            <img className="w-1/2 object-contain" src={patrocinador} alt="patrocinador1" />
-            <img className="w-1/2 object-contain" src={patrocinador} alt="patrocinador2" />
+      <div className="bg-pink-bp h-auto flex justify-center items-center gap-5 p-4">
+        <div className="flex flex-col">
+          <div>
+            <p className="uppercase text-lg font-bold text-white">
+              Patrocinadores oficiais
+            </p>
+          </div>
+          <div>
+            <div className="flex gap-2">
+              <img className="w-1/2 object-contain" src={patrocinador} alt="patrocinador1" />
+              <img className="w-1/2 object-contain" src={patrocinador} alt="patrocinador2" />
+            </div>
           </div>
         </div>
-
+        <div className='md:block hidden'>
+          <button className="uppercase rounded-xl font-extrabold text-2xl w-full h-full p-3 bg-yellow-bp text-white border-2 border-purple-bp">
+            <span className="text-xs font-bold text-pink-bp">Clique aqui</span><br />
+            Seja um<br/> patrocinador
+          </button>
+        </div>
       </div>
 
       <div className="bg-purple-bp h-auto flex justify-center p-1">
