@@ -11,6 +11,8 @@ import bg from './assets/bg.png'
 export function App() {
   return (
     <>
+
+{/*  HEADER  */}   
       <div className="bg-white p-4 flex items-center justify-between">
         <div>
           <img className='w-28 md:w-20' src={logo} alt="logo-bicho-preguiça" />
@@ -49,10 +51,12 @@ export function App() {
         </ul>
       </div>
 
+{/*  BANNER BICHO  */}
       <div className=' md:h-auto md:w-auto'>
         <img className='object-cover w-full h-full' src={banner} alt="banner" />
       </div>
 
+{/*  VOTAÇÃO ABADÁ  */}
       <div className="flex flex-col justify-center items-center gap-5 bg-blue-bp h-auto p-4 mt-2">
         <div className="flex flex-col items-center text-white">
           <p className="uppercase text-sm">
@@ -80,27 +84,37 @@ export function App() {
 
       </div>
 
-      <div className="bg-pink-bp h-auto flex justify-center items-center gap-5 p-4">
-        <div className="flex flex-col">
-          <div>
-            <p className="uppercase text-lg font-bold text-white">
-              Patrocinadores oficiais
-            </p>
+{/*  PATROCINADORES  */}
+      <div className="bg-pink-bp h-auto py-12">
+        
+        <p className="uppercase text-lg md:text-3xl p-4 font-bold text-white">
+          Patrocinadores oficiais
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-3">
+          <div className="md:col-span-1 p-4 mr-3">
+            <button className="uppercase font-extrabold text-3xl w-full h-full border-none p-3 bg-yellow-bp text-white border-2">
+              <span className="text-xs md:font-2xl font-bold text-pink-bp">Clique aqui</span><br />
+              Seja um<br/> patrocinador
+            </button>
           </div>
-          <div>
-            <div className="flex gap-2">
-              <img className="w-1/2 object-contain" src={patrocinador} alt="patrocinador1" />
-              <img className="w-1/2 object-contain" src={patrocinador} alt="patrocinador2" />
-            </div>
+
+          <div className="flex justify-around md:col-span-2 p-4 gap-4">
+            <img className="w-full h-full" src={patrocinador} alt="patrocinador1" />
+            <img className="w-full h-full" src={patrocinador} alt="patrocinador1" />
+            <img className="w-full h-full" src={patrocinador} alt="patrocinador1" />
+            <img className="w-full h-full" src={patrocinador} alt="patrocinador1" />
           </div>
         </div>
+      </div>
+
+{/* 
         <div className='md:block hidden'>
           <button className="uppercase rounded-xl font-extrabold text-2xl w-full h-full p-3 bg-yellow-bp text-white border-2 border-purple-bp">
             <span className="text-xs font-bold text-pink-bp">Clique aqui</span><br />
             Seja um<br/> patrocinador
           </button>
         </div>
-      </div>
 
       <div className="bg-purple-bp h-auto flex justify-center p-1">
         <button className="uppercase rounded-xl font-extrabold text-2xl w-full h-full p-3 bg-yellow-bp text-white border-2 border-purple-bp">
@@ -108,7 +122,7 @@ export function App() {
           Seja um<br/> patrocinador
         </button>
       </div>
-
+*/}
 
       <div className="bg-blue-bp h-auto flex flex-col justify-center items-center gap-5">
         <div className="text-white text-center">
