@@ -7,6 +7,7 @@ import patrocinador from './assets/patrocinador.png'
 import menu from './assets/icon-menu.png'
 import sobre from './assets/sobre-nos.png'
 import bg from './assets/bg.png'
+import pic from './assets/pic.png'
 
 export function App() {
   return (
@@ -124,12 +125,13 @@ export function App() {
       </div>
 */}
 
-      <div className="bg-blue-bp h-auto flex flex-col justify-center items-center gap-5">
+{/*  SOBRE NÓS  */}
+      <div className="bg-blue-bp h-auto flex flex-col md:flex-row justify-center items-center gap-5">
         <div className="text-white text-center">
-          <p className="uppercase text-lg pb-2 font-bold text-white">
+          <p className="uppercase text-lg md:text-3xl pb-10 font-bold text-white">
             Sobre nós
           </p>
-          <p className="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium iure incidunt nulla obcaecati nobis sunt excepturi quas perferendis doloremque quia, dolorum expedita! Ipsum molestiae magni minima? Voluptatum, eligendi sint? Sed?</p>
+          <p className="text-sm md:text-2xl px-28">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium iure incidunt nulla obcaecati nobis sunt excepturi quas perferendis doloremque quia, dolorum expedita! Ipsum molestiae magni minima? Voluptatum, eligendi sint? Sed?</p>
         </div>
         <div className="w-full">
           <img className="w-full h-full object-cover" src={sobre} alt="sobre nos" />
@@ -138,21 +140,27 @@ export function App() {
       </div>
 
 
-      <img className="bg-cover h-screen w-screen" src={bg} alt="" />
-
-      <div className='bg-yellow-bp h-auto flex flex-col justify-center items-center gap-5 p-4 mt-3'>
-        <div className="bg-pink-bp h-auto flex flex-col justify-center items-center gap-5 p-4">
-          <div>
-            <p className="uppercase text-lg font-bold text-white">
-              Galeria
-            </p>
+      <div className="relative bg-cover h-screen w-screen" style={{ backgroundImage: `url(${bg})` }}>
+        <div>
+          <div className="flex items-center justify-center py-10 text-white text-center">
+            <h1 className="text-4xl font-bold mb-4">GALERIA</h1>
           </div>
-          <div>
+
+          <div className="flex justify-around md:col-span-2 p-4 gap-4">
+            <img className="w-full h-full" src={pic} alt="pic1" />
+            <img className="w-full h-full" src={pic} alt="pic1" />
+            <img className="w-full h-full" src={pic} alt="pic1" />
+            <img className="w-full h-full" src={pic} alt="pic1" />
           </div>
         </div>
 
-        <div className="bg-blue-bp h-auto flex flex-col justify-center items-center gap-5 p-4">
+        <div>
           <p>cabeçalho</p>
+          <button>aaaa</button>
+          <button>aaaa</button>
+          <button>aaaa</button>
+          <button>aaaa</button>
+
         </div>
       </div>
     </>
