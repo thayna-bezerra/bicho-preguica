@@ -8,6 +8,9 @@ import menu from './assets/icon-menu.png'
 import sobre from './assets/sobre-nos.png'
 import bg from './assets/bg.png'
 import pic from './assets/pic.png'
+import wpp from './assets/whatsapp.png'
+import fb from './assets/facebook.png'
+import insta from './assets/instagram.png'
 
 export function App() {
   return (
@@ -26,23 +29,23 @@ export function App() {
         </div>
         
         <ul className="text-lg gap-10 font-bold text-yellow-bp md:mt-0 mt-[29px] tracking-1.3 text-uppercase md:flex md:items-center md:justify-around md:static absolute bg-white w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7">
-          <li className="mx-4 my-6 md:my-0">
-            <a href="#">
+          <li className="my-6 md:my-0">
+            <a href="#inicio" className="pb-6 px-2 hover:border-b-8 hover:border-blue-bp">
               INÍCIO
             </a>
           </li>
-          <li className="mx-4 my-6 md:my-0">
-            <a href="#">
+          <li className="my-6 md:my-0">
+            <a href="#votacao" className="pb-6 px-2 hover:border-b-8 hover:border-blue-bp">
               VOTAÇÃO
             </a>
           </li>
-          <li className="mx-4 my-6 md:my-0">
-            <a href="#">
+          <li className="my-6 md:my-0">
+            <a href="#sobre" className="pb-6 px-2 hover:border-b-8 hover:border-blue-bp">
               SOBRE NÓS
             </a>
           </li>
-          <li className="mx-4 my-6 md:my-0">
-            <a href="#">
+          <li className="my-6 md:my-0 ">
+            <a href="#galeria" className="pb-6 px-2 hover:border-b-8 hover:border-blue-bp">
               GALERIA
             </a>
           </li>
@@ -53,12 +56,12 @@ export function App() {
       </div>
 
 {/*  BANNER BICHO  */}
-      <div className=' md:h-auto md:w-auto'>
-        <img className='object-cover w-full h-full' src={banner} alt="banner" />
+      <div id="inicio" className="md:h-auto md:w-auto">
+        <img className="object-cover w-full h-full" src={banner} alt="banner" />
       </div>
 
 {/*  VOTAÇÃO ABADÁ  */}
-      <div className="flex flex-col justify-center items-center gap-5 bg-blue-bp h-auto p-4 mt-2">
+      <div id="votacao" className="flex flex-col justify-center items-center gap-5 bg-blue-bp h-auto p-4 mt-2">
         <div className="flex flex-col items-center text-white">
           <p className="uppercase text-sm">
             Vote e escolha no abadá do 
@@ -126,7 +129,7 @@ export function App() {
 */}
 
 {/*  SOBRE NÓS  */}
-      <div className="bg-blue-bp h-auto flex flex-col md:flex-row justify-center items-center gap-5">
+      <div id="sobre" className="bg-blue-bp h-auto flex flex-col md:flex-row justify-center items-center gap-5">
         <div className="text-white text-center">
           <p className="uppercase text-lg md:text-3xl pb-10 font-bold text-white">
             Sobre nós
@@ -140,7 +143,7 @@ export function App() {
       </div>
 
 
-      <div className="relative bg-cover h-screen w-screen" style={{ backgroundImage: `url(${bg})` }}>
+      <div id="galeria" className="relative bg-cover" style={{ backgroundImage: `url(${bg})` }}>
         <div>
           <div className="flex items-center justify-center py-10 text-white text-center">
             <h1 className="text-4xl font-bold mb-4">GALERIA</h1>
@@ -154,13 +157,22 @@ export function App() {
           </div>
         </div>
 
-        <div>
-          <p>cabeçalho</p>
-          <button>aaaa</button>
-          <button>aaaa</button>
-          <button>aaaa</button>
-          <button>aaaa</button>
+        <div className="flex items-center justify-center gap-16 pt-40 pb-32"> 
+          <div className="flex gap-5">
+            <a href="#">
+              <img src={wpp} alt=""/>
+            </a>
+            <a href="#">
+              <img src={fb} alt=""/>
+            </a>
+            <a href="#">
+              <img src={insta} alt=""/>
+            </a>
+          </div>
 
+          <button className="bg-yellow-bp rounded-md uppercase text-white text-lg font-bold p-4">
+            Seja um patrocinador
+          </button>
         </div>
       </div>
     </>
