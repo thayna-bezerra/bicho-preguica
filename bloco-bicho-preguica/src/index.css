@@ -13,23 +13,18 @@ html{
   scroll-behavior: smooth;
 }
 
-
 li.cursor-pointer.open .arrow-icon {
   transform: rotate(180deg);
 }
 
-.accordion-trigger .border-t,
-.accordion-content .border-t {
-  border: 1px solid #ccc; 
+.slick-prev:before {
+  content: url("../assets/arrow.svg");
 }
 
-.accordion-trigger .py-4 {
-  padding-top: 1rem; 
+.slick-next:before {
+  content: url("../assets/arrow.svg");
 }
 
-.accordion-content .border-t {
-  border-top: none;
-}
 .slick-slider {
   @apply relative;
 }

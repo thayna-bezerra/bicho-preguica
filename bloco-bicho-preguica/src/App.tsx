@@ -1,12 +1,9 @@
-import React, { useEffect } from 'react';
-
-import Slider from 'react-slick';
-
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 import "./index.css";
+
 import logo from "./assets/logo.png"
 import banner from "./assets/banner.png"
 import abada from "./assets/abada.png"
@@ -20,17 +17,23 @@ import fb from "./assets/facebook.png"
 import insta from "./assets/instagram.png"
 
 export function App() {
-  
-  const sliders = () => {
-    useEffect(() => {
-      $(".slider-banner").slick({
-        infinite: true,
-        slidesToShow: 1,
-        slidesToScroll: 4,
-        arrows: true,
-        dots: true,
-      });
-    }, []); }
+  const sliderBanner = {
+    arrows: true,
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slideToScroll: 2
+  }
+  const sliderPatrocinadores = {
+    arrows: false,
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slideToScroll: 5
+  }
+
   return (
     <>
       {/*  HEADER  */}   
@@ -73,9 +76,14 @@ export function App() {
       </div>
 
 {/*  BANNER BICHO  */}
-      <div id="inicio" className="slider-banner md:h-auto md:w-auto">
-        <img className="object-cover w-full h-full" src={banner} alt="banner" />
-      </div>
+      <Slider {...sliderBanner}>
+        <div id="inicio" className="md:h-auto md:w-auto">
+          <img className="object-cover w-full h-full" src={banner} alt="banner" />
+        </div>
+        <div id="inicio" className="md:h-auto md:w-auto">
+          <img className="object-cover w-full h-full" src={banner} alt="banner" />
+        </div>
+      </Slider>
 
 {/*  VOTAÇÃO ABADÁ  */}
       <div id="votacao" className="flex flex-col justify-center items-center gap-5 bg-blue-bp h-auto p-4 mt-2">
@@ -107,7 +115,6 @@ export function App() {
 
 {/*  PATROCINADORES  */}
       <div className="bg-pink-bp h-auto py-12">
-        
         <p className="uppercase text-lg md:text-3xl p-4 font-bold text-white">
           Patrocinadores oficiais
         </p>
@@ -120,12 +127,20 @@ export function App() {
             </button>
           </div>
 
-          <div className="slider-banner flex justify-around md:col-span-2 p-4 gap-4">
-            <img className="w-full h-full" src={patrocinador} alt="patrocinador1" />
-            <img className="w-full h-full" src={patrocinador} alt="patrocinador1" />
-            <img className="w-full h-full" src={patrocinador} alt="patrocinador1" />
-            <img className="w-full h-full" src={patrocinador} alt="patrocinador1" />
-          </div>
+          <Slider className="flex justify-around md:col-span-2 p-4 gap-4" {...sliderPatrocinadores}>
+            <div className="flex justify-around md:col-span-2 p-4 gap-4">
+              <img className="w-full h-full" src={patrocinador} alt="patrocinador1" />
+            </div>
+            <div className="flex justify-around md:col-span-2 p-4 gap-4">
+              <img className="w-full h-full" src={patrocinador} alt="patrocinador1" />
+            </div>
+            <div className="flex justify-around md:col-span-2 p-4 gap-4">
+              <img className="w-full h-full" src={patrocinador} alt="patrocinador1" />
+            </div>
+            <div className="flex justify-around md:col-span-2 p-4 gap-4">
+              <img className="w-full h-full" src={patrocinador} alt="patrocinador1" />
+            </div>
+          </Slider> 
         </div>
       </div>
 
@@ -156,7 +171,6 @@ export function App() {
         <div className="w-full">
           <img className="w-full h-full object-cover" src={sobre} alt="sobre nos" />
         </div>
-
       </div>
 
 
@@ -166,12 +180,20 @@ export function App() {
             <h1 className="text-4xl font-bold mb-4">GALERIA</h1>
           </div>
 
-          <div className="slider-banner flex justify-around md:col-span-2 p-4 gap-4">
-            <img className="w-full h-full" src={pic} alt="pic1" />
-            <img className="w-full h-full" src={pic} alt="pic1" />
-            <img className="w-full h-full" src={pic} alt="pic1" />
-            <img className="w-full h-full" src={pic} alt="pic1" />
-          </div>
+          <Slider className="flex justify-around md:col-span-2 p-4 gap-4" {...sliderBanner}> 
+            <div>
+              <img className="w-full h-full" src={pic} alt="pic1" />
+            </div>
+            <div>
+              <img className="w-full h-full" src={pic} alt="pic1" />
+            </div>
+            <div>
+              <img className="w-full h-full" src={pic} alt="pic1" />
+            </div>
+            <div>
+              <img className="w-full h-full" src={pic} alt="pic1" />
+            </div>
+          </Slider>
         </div>
 
         <div className="flex items-center justify-center gap-16 pt-40 pb-32"> 
