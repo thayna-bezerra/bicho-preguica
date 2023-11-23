@@ -25,13 +25,45 @@ export function App() {
     slidesToShow: 1,
     slideToScroll: 2
   }
+
   const sliderPatrocinadores = {
     arrows: false,
     dots: true,
     infinite: true,
     speed: 500,
+    slidesToShow: 4,
+    slideToScroll: 5,
+    autoplay: true, 
+    autoplaySpeed: 1000,
+  }
+
+  const sliderGallery = {
+    centerMode: true,
+    centerPadding: '60px',
     slidesToShow: 3,
-    slideToScroll: 5
+    speed: 500,
+    autoplay: true, 
+    autoplaySpeed: 1000,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          arrows: false,
+          centerMode: true,
+          centerPadding: '40px',
+          slidesToShow: 3
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          arrows: false,
+          centerMode: true,
+          centerPadding: '40px',
+          slidesToShow: 1
+        }
+      }
+    ]
   }
 
   return (
@@ -120,27 +152,31 @@ export function App() {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3">
-          <div className="md:col-span-1 p-4 mr-3">
-            <button className="uppercase font-extrabold text-3xl w-full h-full border-none p-3 bg-yellow-bp text-white border-2">
-              <span className="text-xs md:font-2xl font-bold text-pink-bp">Clique aqui</span><br />
-              Seja um<br/> patrocinador
-            </button>
-          </div>
+        <div className="md:col-span-1 p-4 mr-3 flex flex-col justify-center items-center">
+          <button className="blinking-button uppercase font-extrabold text-xl w-full border-none p-3 py-7 bg-yellow-bp text-white border-2">
+            <span className="text-xs md:font-xl font-bold text-pink-bp">Clique aqui</span><br />
+            Seja um<br/> patrocinador
+          </button>
+        </div>
 
-          <Slider className="flex justify-around md:col-span-2 p-4 gap-4" {...sliderPatrocinadores}>
-            <div className="flex justify-around md:col-span-2 p-4 gap-4">
-              <img className="w-full h-full" src={patrocinador} alt="patrocinador1" />
-            </div>
-            <div className="flex justify-around md:col-span-2 p-4 gap-4">
-              <img className="w-full h-full" src={patrocinador} alt="patrocinador1" />
-            </div>
-            <div className="flex justify-around md:col-span-2 p-4 gap-4">
-              <img className="w-full h-full" src={patrocinador} alt="patrocinador1" />
-            </div>
-            <div className="flex justify-around md:col-span-2 p-4 gap-4">
-              <img className="w-full h-full" src={patrocinador} alt="patrocinador1" />
-            </div>
-          </Slider> 
+
+        <Slider className="flex justify-around md:col-span-2 p-4 gap-4" {...sliderPatrocinadores}>
+          <div className="flex justify-around md:col-span-2 p-4 gap-4">
+            <img className="w-full h-full" src={patrocinador} alt="patrocinador1" />
+          </div>
+          <div className="flex justify-around md:col-span-2 p-4 gap-4">
+            <img className="w-full h-full" src={patrocinador} alt="patrocinador1" />
+          </div>
+          <div className="flex justify-around md:col-span-2 p-4 gap-4">
+            <img className="w-full h-full" src={patrocinador} alt="patrocinador1" />
+          </div>
+          <div className="flex justify-around md:col-span-2 p-4 gap-4">
+            <img className="w-full h-full" src={patrocinador} alt="patrocinador1" />
+          </div>
+          <div className="flex justify-around md:col-span-2 p-4 gap-4">
+            <img className="w-full h-full" src={patrocinador} alt="patrocinador1" />
+          </div>
+        </Slider> 
         </div>
       </div>
 
@@ -163,10 +199,10 @@ export function App() {
 {/*  SOBRE NÓS  */}
       <div id="sobre" className="bg-blue-bp h-auto flex flex-col md:flex-row justify-center items-center gap-5">
         <div className="text-white text-center">
-          <p className="uppercase text-lg md:text-3xl pb-10 font-bold text-white">
+          <p className="uppercase text-lg md:text-xl pb-10 font-bold text-white">
             Sobre nós
           </p>
-          <p className="text-sm md:text-2xl px-28">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium iure incidunt nulla obcaecati nobis sunt excepturi quas perferendis doloremque quia, dolorum expedita! Ipsum molestiae magni minima? Voluptatum, eligendi sint? Sed?</p>
+          <p className="text-sm md:text-lg px-28">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium iure incidunt nulla obcaecati nobis sunt excepturi quas perferendis doloremque quia, dolorum expedita! Ipsum molestiae magni minima? Voluptatum, eligendi sint? Sed?</p>
         </div>
         <div className="w-full">
           <img className="w-full h-full object-cover" src={sobre} alt="sobre nos" />
@@ -180,17 +216,20 @@ export function App() {
             <h1 className="text-4xl font-bold mb-4">GALERIA</h1>
           </div>
 
-          <Slider className="flex justify-around md:col-span-2 p-4 gap-4" {...sliderBanner}> 
-            <div>
+          <Slider {...sliderGallery}> 
+            <div className="flex justify-around md:col-span-2 p-2 gap-4">
               <img className="w-full h-full" src={pic} alt="pic1" />
             </div>
-            <div>
+            <div className="flex justify-around md:col-span-2 p-2 gap-4">
               <img className="w-full h-full" src={pic} alt="pic1" />
             </div>
-            <div>
+            <div className="flex justify-around md:col-span-2 p-2 gap-4">
               <img className="w-full h-full" src={pic} alt="pic1" />
             </div>
-            <div>
+            <div className="flex justify-around md:col-span-2 p-2 gap-4">
+              <img className="w-full h-full" src={pic} alt="pic1" />
+            </div>
+            <div className="flex justify-around md:col-span-2 p-2 gap-4">
               <img className="w-full h-full" src={pic} alt="pic1" />
             </div>
           </Slider>

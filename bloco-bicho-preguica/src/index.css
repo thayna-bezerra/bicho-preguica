@@ -13,6 +13,23 @@ html{
   scroll-behavior: smooth;
 }
 
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.blinking-button {
+  animation: blink 1s infinite; /* 1s de duração, repetir infinitamente */
+}
+
+
 li.cursor-pointer.open .arrow-icon {
   transform: rotate(180deg);
 }
@@ -62,14 +79,18 @@ li.cursor-pointer.open .arrow-icon {
   @apply w-14 h-1 bg-pink-bp;
 }
 
+
+.slick-dots li.slick-active button {
+  @apply w-14 h-1 bg-gray-400; /* Cor alterada quando ativo */
+}
+
 .slick-dots li button:before {
   @apply hidden;
 }
 
-.slick-dots li button{
-  width: 25px !important;
+.slick-dots li button {
+  width: 10px !important;
   height: 10px !important;
   border-radius: 25px !important;
-  border: 1px solid #51868A  !important;
+  border: 1px solid gray !important;
 }
-
