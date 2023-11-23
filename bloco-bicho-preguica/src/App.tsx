@@ -1,25 +1,42 @@
-import React from 'react';
-import './index.css';
-import logo from './assets/logo.png'
-import banner from './assets/banner.png'
-import abada from './assets/abada.png'
-import patrocinador from './assets/patrocinador.png'
-import menu from './assets/icon-menu.png'
-import sobre from './assets/sobre-nos.png'
-import bg from './assets/bg.png'
-import pic from './assets/pic.png'
-import wpp from './assets/whatsapp.png'
-import fb from './assets/facebook.png'
-import insta from './assets/instagram.png'
+import React, { useEffect } from 'react';
+
+import Slider from 'react-slick';
+
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
+
+import "./index.css";
+import logo from "./assets/logo.png"
+import banner from "./assets/banner.png"
+import abada from "./assets/abada.png"
+import patrocinador from "./assets/patrocinador.png"
+import menu from "./assets/icon-menu.png"
+import sobre from "./assets/sobre-nos.png"
+import bg from "./assets/bg.png"
+import pic from "./assets/pic.png"
+import wpp from "./assets/whatsapp.png"
+import fb from "./assets/facebook.png"
+import insta from "./assets/instagram.png"
 
 export function App() {
+  
+  const sliders = () => {
+    useEffect(() => {
+      $(".slider-banner").slick({
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 4,
+        arrows: true,
+        dots: true,
+      });
+    }, []); }
   return (
     <>
-
-{/*  HEADER  */}   
-      <div className="bg-white p-4 flex items-center justify-between">
+      {/*  HEADER  */}   
+      <div className="bg-white px-4 flex items-center justify-between">
         <div>
-          <img className='w-28 md:w-20' src={logo} alt="logo-bicho-preguiça" />
+          <img className="w-28 md:w-20 py-2" src={logo} alt="logo-bicho-preguiça" />
         </div>
 
         <div> 
@@ -30,22 +47,22 @@ export function App() {
         
         <ul className="text-lg gap-10 font-bold text-yellow-bp md:mt-0 mt-[29px] tracking-1.3 text-uppercase md:flex md:items-center md:justify-around md:static absolute bg-white w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7">
           <li className="my-6 md:my-0">
-            <a href="#inicio" className="pb-6 px-2 hover:border-b-8 hover:border-blue-bp">
+            <a href="#inicio" className="pb-6 px-2 hover:border-b-8 hover:border-blue-bp scroll-smooth">
               INÍCIO
             </a>
           </li>
           <li className="my-6 md:my-0">
-            <a href="#votacao" className="pb-6 px-2 hover:border-b-8 hover:border-blue-bp">
+            <a href="#votacao" className="pb-6 px-2 hover:border-b-8 hover:border-blue-bp scroll-smooth">
               VOTAÇÃO
             </a>
           </li>
           <li className="my-6 md:my-0">
-            <a href="#sobre" className="pb-6 px-2 hover:border-b-8 hover:border-blue-bp">
+            <a href="#sobre" className="pb-6 px-2 hover:border-b-8 hover:border-blue-bp scroll-smooth">
               SOBRE NÓS
             </a>
           </li>
           <li className="my-6 md:my-0 ">
-            <a href="#galeria" className="pb-6 px-2 hover:border-b-8 hover:border-blue-bp">
+            <a href="#galeria" className="pb-6 px-2 hover:border-b-8 hover:border-blue-bp scroll-smooth">
               GALERIA
             </a>
           </li>
@@ -56,7 +73,7 @@ export function App() {
       </div>
 
 {/*  BANNER BICHO  */}
-      <div id="inicio" className="md:h-auto md:w-auto">
+      <div id="inicio" className="slider-banner md:h-auto md:w-auto">
         <img className="object-cover w-full h-full" src={banner} alt="banner" />
       </div>
 
@@ -103,7 +120,7 @@ export function App() {
             </button>
           </div>
 
-          <div className="flex justify-around md:col-span-2 p-4 gap-4">
+          <div className="slider-banner flex justify-around md:col-span-2 p-4 gap-4">
             <img className="w-full h-full" src={patrocinador} alt="patrocinador1" />
             <img className="w-full h-full" src={patrocinador} alt="patrocinador1" />
             <img className="w-full h-full" src={patrocinador} alt="patrocinador1" />
@@ -113,7 +130,7 @@ export function App() {
       </div>
 
 {/* 
-        <div className='md:block hidden'>
+        <div className="md:block hidden">
           <button className="uppercase rounded-xl font-extrabold text-2xl w-full h-full p-3 bg-yellow-bp text-white border-2 border-purple-bp">
             <span className="text-xs font-bold text-pink-bp">Clique aqui</span><br />
             Seja um<br/> patrocinador
@@ -149,7 +166,7 @@ export function App() {
             <h1 className="text-4xl font-bold mb-4">GALERIA</h1>
           </div>
 
-          <div className="flex justify-around md:col-span-2 p-4 gap-4">
+          <div className="slider-banner flex justify-around md:col-span-2 p-4 gap-4">
             <img className="w-full h-full" src={pic} alt="pic1" />
             <img className="w-full h-full" src={pic} alt="pic1" />
             <img className="w-full h-full" src={pic} alt="pic1" />
