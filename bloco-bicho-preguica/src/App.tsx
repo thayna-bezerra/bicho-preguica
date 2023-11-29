@@ -18,7 +18,7 @@ import insta from "./assets/instagram.png"
 
 export function App() {
   const sliderBanner = {
-    arrows: true,
+    arrows: false,
     dots: false,
     infinite: true,
     speed: 500,
@@ -38,6 +38,7 @@ export function App() {
   }
 
   const sliderGallery = {
+    arrows: false,
     centerMode: true,
     centerPadding: '60px',
     slidesToShow: 3,
