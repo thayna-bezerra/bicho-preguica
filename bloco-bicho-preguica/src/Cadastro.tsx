@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import upload from "./assets/upload.png"
+import bg from "./assets/bg.png"
 
 const Cadastro: React.FC = () => {
   const [nome, setNome] = useState('');
@@ -43,8 +44,8 @@ const Cadastro: React.FC = () => {
   };
 
   return (
-    <div className="flex w-full h-screen justify-center items-center font-Outfit text-white bg-gradient-to-r from-gray-400 to-gray-500">
-      <section className="flex flex-col w-[900px] justify-center rounded-lg bg-black shadow-xl p-9 relative section-border">
+    <div className="relative bg-cover flex w-full h-screen justify-center items-center font-Outfit text-white" style={{ backgroundImage: `url(${bg})` }}>
+      <section className="flex flex-col w-[850px] justify-center rounded-lg bg-white bg-opacity-50 shadow-xl p-12 relative section-border">
         
         <form onSubmit={handleSubmit}>
           <div className="flex flex-col items-center justify-center mb-8">
@@ -124,7 +125,7 @@ const Cadastro: React.FC = () => {
                       placeholder="Insira os anos que tenha participado (ex: 2018, 2019)"
                       value={anosParticipacaoAnteriores}
                       onChange={handleAnosParticipacaoAnterioresChange}
-                      className="ml-4 w-full text-sm text-white bg-black border-b border-white outline-none focus:border-blue-500"
+                      className="ml-4 w-full text-sm text-white placeholder:text-white bg-transparent border-b border-white outline-none "
                     />
                   )}
                 </label>
@@ -157,7 +158,7 @@ const Cadastro: React.FC = () => {
                 em nosso mural e para material de divulgação.
               </p>
             </div>
-            <div className="w-2/6 relative border-dashed border-2 border-gray-400 p-4 rounded-md bg-black cursor-pointer">
+            <div className="w-2/6 relative border-dashed border-2 border-gray-400 p-4 rounded-md bg-white bg-opacity-50  cursor-pointer">
               <div className="flex items-center justify-center">
               {foto ? (
                 <img
