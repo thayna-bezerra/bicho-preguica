@@ -23,7 +23,7 @@ const Cadastro: React.FC = () => {
     if (files && files.length > 0) {
       const reader = new FileReader();
       reader.onload = () => {
-        setFoto(reader.result as string || null);
+        {/*setFoto(reader.result as string || null);*/}
       };
       reader.readAsDataURL(files[0]);
     }
@@ -160,14 +160,14 @@ const Cadastro: React.FC = () => {
             </div>
             <div className="w-2/6 relative border-dashed border-2 border-gray-400 p-4 rounded-md bg-white bg-opacity-50  cursor-pointer">
               <div className="flex items-center justify-center">
-              {foto ? (
+              {/*{foto ? (
                 <img
                   src={foto}
                   className="w-32 h-32 object-cover rounded-md"
                 />
                 ) : (
                   <img className="w-5" src={upload} alt="" />
-                )}
+                )}*/}
               </div>
               <p className="mt-1 text-sm text-gray-600">Drag and drop files here</p>
               <p className="text-xs text-gray-500 mt-2">or</p>
