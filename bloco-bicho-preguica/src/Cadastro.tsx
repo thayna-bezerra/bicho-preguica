@@ -64,7 +64,7 @@ const Cadastro: React.FC = () => {
               placeholder="Insira o seu nome" 
               value={nome} 
               onChange={(e) => setNome(e.target.value)} 
-              className="w-full px-3 py-2 rounded-md bg-white text-gray-800 border border-gray-600 focus:outline-none focus:ring focus:ring-pink-bp"
+              className="w-full px-3 py-2 rounded-md bg-white text-gray-800  focus:outline-none focus:ring focus:ring-pink-bp"
             />
           </div>
 
@@ -76,7 +76,7 @@ const Cadastro: React.FC = () => {
                 placeholder="Insira o seu e-mail" 
                 value={email} 
                 onChange={(e) => setEmail(e.target.value)} 
-                className="w-full pr-6 px-3 py-2 rounded-md bg-white text-gray-800 border border-gray-600 focus:outline-none focus:ring focus:ring-pink-bp"
+                className="w-full pr-6 px-3 py-2 rounded-md bg-white text-gray-800   focus:outline-none focus:ring focus:ring-pink-bp"
               />
             </div>
 
@@ -87,7 +87,7 @@ const Cadastro: React.FC = () => {
                 placeholder="(99) 99999-9999"
                 value={telefone}
                 onChange={(e) => setTelefone(e.target.value)}
-                className="w-full px-3 py-2 rounded-md bg-white text-gray-800 border border-gray-600 focus:outline-none focus:ring focus:ring-pink-bp"
+                className="w-full px-3 py-2 rounded-md bg-white text-gray-800  focus:outline-none focus:ring focus:ring-pink-bp"
               />
             </div>
           </div>
@@ -139,7 +139,7 @@ const Cadastro: React.FC = () => {
               <select 
                 value={anosParticipacaoAnteriores} 
                 onChange={(e) => setAnosParticipacaoAnteriores(e.target.value)}
-                className="w-full mt-2 px-3 py-2 rounded-md bg-white text-gray-800 border border-gray-600"
+                className="w-full mt-2 px-3 py-2 rounded-md bg-white text-gray-800  "
               >
                 <option value="Não tenho interesse">Não tenho interesse</option>
                 <option value="Sim, quero ser um colaborador">Sim, quero ser um colaborador</option>
