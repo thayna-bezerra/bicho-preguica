@@ -43,7 +43,7 @@ const Cadastro: React.FC = () => {
   };
 
   return (
-    <div className="relative bg-cover flex w-full h-screen justify-center items-center font-Outfit text-white" style={{ backgroundImage: `url(${bg})` }}>
+    <div className="relative bg-cover md:flex w-full md:h-screen justify-center items-center text-white" style={{ backgroundImage: `url(${bg})` }}>
       <section className="flex flex-col w-full sm:w-11/12 md:w-10/12 lg:w-8/12 xl:w-7/12 justify-center rounded-lg bg-white bg-opacity-50 shadow-xl py-8 px-4 sm:px-8 md:px-16 relative section-border">
         <form onSubmit={handleSubmit}>
           <div className="flex flex-col items-center justify-center mb-8">
