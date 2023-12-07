@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import upload from "./assets/upload.png"
+import upload from "./assets/file.png"
 import bg from "./assets/bg.png"
 
 const Cadastro: React.FC = () => {
@@ -9,6 +9,7 @@ const Cadastro: React.FC = () => {
   const [participouAnteriormente, setParticipouAnteriormente] = useState(false);
   const [anosParticipacaoAnteriores, setAnosParticipacaoAnteriores] = useState('');
   const [foto, setFoto] = useState<File | null>(null);
+  const [nomeArquivo, setNomeArquivo] = useState('');
 
   const handleParticipouAnteriormenteChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setParticipouAnteriormente(e.target.value === 'Sim');
@@ -19,13 +20,11 @@ const Cadastro: React.FC = () => {
   };
 
   const handleFotoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const files = e.target.files;
-    if (files && files.length > 0) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        {/*setFoto(reader.result as string || null);*/}
-      };
-      reader.readAsDataURL(files[0]);
+    const arquivo = e.target.files;
+    if (arquivo && arquivo.length > 0) {
+      const nomeDoArquivo = arquivo[0].name;
+      setNomeArquivo(nomeDoArquivo);
+      // Aqui você pode fazer mais alguma coisa com o arquivo, se necessário
     }
   };
 
@@ -45,14 +44,13 @@ const Cadastro: React.FC = () => {
 
   return (
     <div className="relative bg-cover flex w-full h-screen justify-center items-center font-Outfit text-white" style={{ backgroundImage: `url(${bg})` }}>
-      <section className="flex flex-col w-[850px] justify-center rounded-lg bg-white bg-opacity-50 shadow-xl p-12 relative section-border">
-        
+      <section className="flex flex-col w-[1000px] justify-center rounded-lg bg-white bg-opacity-50 shadow-xl py-8 px-16 relative section-border">
         <form onSubmit={handleSubmit}>
           <div className="flex flex-col items-center justify-center mb-8">
             <p>
               CADASTRE-SE
             </p>
-            <p className="text-2xl mt-2">
+            <p className="text-2xl mt-2 font-semibold">
               FAÇA PARTE DO BLOCO <span className="font-bold">BICHO PREGUIÇA</span>
             </p>
           </div>
@@ -64,7 +62,7 @@ const Cadastro: React.FC = () => {
               placeholder="Insira o seu nome" 
               value={nome} 
               onChange={(e) => setNome(e.target.value)} 
-              className="w-full px-3 py-2 rounded-md bg-white text-gray-800  focus:outline-none focus:ring focus:ring-pink-bp"
+              className="mt-2 w-full px-3 py-2 rounded-md bg-white text-gray-800  focus:outline-none focus:ring focus:ring-pink-bp"
             />
           </div>
 
@@ -76,7 +74,7 @@ const Cadastro: React.FC = () => {
                 placeholder="Insira o seu e-mail" 
                 value={email} 
                 onChange={(e) => setEmail(e.target.value)} 
-                className="w-full pr-6 px-3 py-2 rounded-md bg-white text-gray-800   focus:outline-none focus:ring focus:ring-pink-bp"
+                className="w-full mt-2 pr-6 px-3 py-2 rounded-md bg-white text-gray-800   focus:outline-none focus:ring focus:ring-pink-bp"
               />
             </div>
 
@@ -87,7 +85,7 @@ const Cadastro: React.FC = () => {
                 placeholder="(99) 99999-9999"
                 value={telefone}
                 onChange={(e) => setTelefone(e.target.value)}
-                className="w-full px-3 py-2 rounded-md bg-white text-gray-800  focus:outline-none focus:ring focus:ring-pink-bp"
+                className="mt-2 w-full px-3 py-2 rounded-md bg-white text-gray-800  focus:outline-none focus:ring focus:ring-pink-bp"
               />
             </div>
           </div>
@@ -139,7 +137,7 @@ const Cadastro: React.FC = () => {
               <select 
                 /*value={anosParticipacaoAnteriores} 
                 onChange={(e) => setAnosParticipacaoAnteriores(e.target.value)}*/
-                className="w-full mt-2 px-3 py-2 rounded-md bg-white text-gray-800  "
+                className="w-full mt-2 px-3 py-2 rounded-md bg-white text-gray-500"
               >
                 <option value="Não tenho interesse">Não tenho interesse</option>
                 <option value="Sim, quero ser um colaborador">Sim, quero ser um colaborador</option>
@@ -149,36 +147,34 @@ const Cadastro: React.FC = () => {
 
           <div className="flex gap-6 mb-11">
             <div className="w-4/6">
-              <label className="font-medium text-base">
+              <label className="font-semibold text-lg">
                 Compartilhe uma foto memorável da concentração do nosso bloco de carnaval.
               </label>
-              <p className="pt-3 text-xs">
+              <p className="pt-3 text-sm">
                 Faça o upload de uma foto da concentração que represente a alegria e a atmosfera festiva 
                 do nosso bloco, independentemente do ano em que tenha sido tirada. Sua foto pode ser usada 
                 em nosso mural e para material de divulgação.
               </p>
             </div>
-            <div className="w-2/6 relative border-dashed border-2 border-gray-400 p-4 rounded-md bg-white bg-opacity-50  cursor-pointer">
+            <div className="w-2/6 relative border-dashed border-2 border-white p-4 rounded-md bg-white bg-opacity-30 cursor-pointer">
               <div className="flex items-center justify-center">
-              {/*{foto ? (
-                <img
-                  src={foto}
-                  className="w-32 h-32 object-cover rounded-md"
-                />
-                ) : (
-                  <img className="w-5" src={upload} alt="" />
-                )}*/}
+                <img src={upload} alt="" />
               </div>
-              <p className="mt-1 text-sm text-gray-600">Drag and drop files here</p>
-              <p className="text-xs text-gray-500 mt-2">or</p>
+
+              <p className="flex justify-center m-2 text-sm text-gray-600">
+                {nomeArquivo ? `Foto selecionada: ${nomeArquivo}` : 'Adicione sua foto aqui!'}
+              </p>
+
               <label
                 htmlFor="uploadInput"
-                className="mt-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer"
+                className="mt-2 flex items-center justify-center bg-gray-500 hover:bg-gray-700 text-white text-sm font-semibold py-1 px-2 rounded cursor-pointer"
               >
-                Browse Files
+                Enviar arquivo
               </label>
+
               <input
                 id="uploadInput"
+                name="uploadInput"
                 type="file"
                 onChange={handleFotoChange}
                 className="hidden"
@@ -188,7 +184,7 @@ const Cadastro: React.FC = () => {
 
           <button 
             type="submit"
-            className="w-full flex items-center justify-center bg-white opacity-50 py-2 px-4 rounded-md text-black text-base font-medium hover:opacity-80 focus:outline-none focus:ring focus:ring-blue-bp"   
+            className="w-full uppercase flex items-center justify-center bg-white opacity-70 py-4 px-4 rounded-md text-black text-base font-bold hover:opacity-90 focus:outline-none focus:ring focus:ring-blue-bp"   
           >
             Finalizar Cadastro
           </button>
