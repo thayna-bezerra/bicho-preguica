@@ -137,8 +137,8 @@ const Cadastro: React.FC = () => {
                 Deseja trabalhar na produção do nosso bloco?
               </label>
               <select 
-                value={anosParticipacaoAnteriores} 
-                onChange={(e) => setAnosParticipacaoAnteriores(e.target.value)}
+                /*value={anosParticipacaoAnteriores} 
+                onChange={(e) => setAnosParticipacaoAnteriores(e.target.value)}*/
                 className="w-full mt-2 px-3 py-2 rounded-md bg-white text-gray-800  "
               >
                 <option value="Não tenho interesse">Não tenho interesse</option>
