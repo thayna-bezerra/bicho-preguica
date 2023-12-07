@@ -44,7 +44,7 @@ const Cadastro: React.FC = () => {
 
   return (
     <div className="relative bg-cover flex w-full h-screen justify-center items-center font-Outfit text-white" style={{ backgroundImage: `url(${bg})` }}>
-      <section className="flex flex-col w-[1000px] justify-center rounded-lg bg-white bg-opacity-50 shadow-xl py-8 px-16 relative section-border">
+      <section className="flex flex-col w-full sm:w-11/12 md:w-10/12 lg:w-8/12 xl:w-7/12 justify-center rounded-lg bg-white bg-opacity-50 shadow-xl py-8 px-4 sm:px-8 md:px-16 relative section-border">
         <form onSubmit={handleSubmit}>
           <div className="flex flex-col items-center justify-center mb-8">
             <p>
@@ -66,19 +66,19 @@ const Cadastro: React.FC = () => {
             />
           </div>
 
-          <div className="flex gap-6 pb-9">
-            <div className="w-4/5">
+          <div className="flex flex-col sm:flex-row gap-6 pb-9">
+            <div className="w-full sm:w-4/5">
               <label>E-mail:</label>
               <input 
                 type="email" 
                 placeholder="Insira o seu e-mail" 
                 value={email} 
                 onChange={(e) => setEmail(e.target.value)} 
-                className="w-full mt-2 pr-6 px-3 py-2 rounded-md bg-white text-gray-800   focus:outline-none focus:ring focus:ring-pink-bp"
+                className="w-full mt-2 px-3 py-2 rounded-md bg-white text-gray-800   focus:outline-none focus:ring focus:ring-pink-bp"
               />
             </div>
 
-            <div className="w-3/5">
+            <div className="w-full sm:w-3/5">
               <label>Telefone para contato:</label>
               <input
                 type="tel"
@@ -90,8 +90,8 @@ const Cadastro: React.FC = () => {
             </div>
           </div>
 
-          <div className="flex gap-6 mb-10">
-            <div className="w-4/5">
+          <div className="flex flex-col sm:flex-row gap-6 mb-10">
+            <div className="w-full sm:w-4/5">
               <p className="mb-2">
                 Já participou de edições anteriores?
               </p>
@@ -130,7 +130,7 @@ const Cadastro: React.FC = () => {
               </div>
             </div>
 
-            <div className="w-3/5">
+            <div className="w-full sm:w-3/5">
               <label className="">
                 Deseja trabalhar na produção do nosso bloco?
               </label>
@@ -145,8 +145,8 @@ const Cadastro: React.FC = () => {
             </div>
           </div>
 
-          <div className="flex gap-6 mb-11">
-            <div className="w-4/6">
+          <div className="flex flex-col sm:flex-row gap-6 mb-11">
+            <div className="w-full sm:w-4/6">
               <label className="font-semibold text-lg">
                 Compartilhe uma foto memorável da concentração do nosso bloco de carnaval.
               </label>
@@ -156,7 +156,7 @@ const Cadastro: React.FC = () => {
                 em nosso mural e para material de divulgação.
               </p>
             </div>
-            <div className="w-2/6 relative border-dashed border-2 border-white p-4 rounded-md bg-white bg-opacity-30 cursor-pointer">
+            <div className="w-full sm:w-2/6 relative border-dashed border-2 border-white p-4 rounded-md bg-white bg-opacity-30 cursor-pointer">
               <div className="flex items-center justify-center">
                 <img src={upload} alt="" />
               </div>
@@ -184,12 +184,11 @@ const Cadastro: React.FC = () => {
 
           <button 
             type="submit"
-            className="w-full uppercase flex items-center justify-center bg-white opacity-70 py-4 px-4 rounded-md text-black text-base font-bold hover:opacity-90 focus:outline-none focus:ring focus:ring-blue-bp"   
+            className="w-full uppercase flex items-center justify-center bg-white opacity-70 py-4 px-4 rounded-md text-gray-600 text-base font-bold hover:opacity-90 focus:outline-none focus:ring focus:ring-blue-bp"   
           >
             Finalizar Cadastro
           </button>
         </form>
-
       </section>
     </div>
   );
