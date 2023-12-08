@@ -6,6 +6,6 @@ import Cadastro from './Cadastro'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <Cadastro />
+    <App />
   </React.StrictMode>,
 )
