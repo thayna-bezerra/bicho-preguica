@@ -236,7 +236,7 @@ export function App() {
           </Slider>
         </div>
 
-        <div className="flex items-center justify-center gap-16 pt-40 pb-32"> 
+        <div className="flex flex-col items-center justify-center pt-8 pb-8 md:flex-row md:items-center md:justify-center md:gap-16 lg:pt-40 lg:pb-32">
           <div className="flex gap-5">
             <a href="#">
               <img src={wpp} alt=""/>
@@ -249,10 +249,11 @@ export function App() {
             </a>
           </div>
 
-          <button className="bg-yellow-bp rounded-md uppercase text-white text-lg font-bold p-4">
+          <button className="bg-yellow-bp rounded-md uppercase text-white text-lg font-bold p-4 mt-4 md:mt-0">
             Seja um patrocinador
           </button>
         </div>
+
       </div>
     </>
   );
