@@ -131,52 +131,13 @@ export function App() {
       </div>
     </div>
 
-      {/*  HEADER     
-      <div className="bg-white px-4 flex items-center justify-between">
-        <div>
-          <img className="w-28 md:w-20 py-2" src={logo} alt="logo-bicho-preguiça" />
-        </div>
-
-        <div> 
-          <span className="cursor-pointer md:hidden block">
-            <img src={menu} alt="icon menu"/>
-          </span>
-        </div>
-        
-        <ul className="text-lg gap-10 font-bold text-yellow-bp tracking-1.3 text-uppercase absolute bg-white w-full left-0 pl-7 md:justify-around md:static md:w-auto md:py-0 py-4 md:pl-0 md:mt-0 md:flex md:items-center">
-          <li className="my-6 md:my-0">
-            <a href="#inicio" className="pb-8 px-2 hover:border-b-8 hover:border-blue-bp scroll-smooth">
-              INÍCIO
-            </a>
-          </li>
-          <li className="my-6 md:my-0">
-            <a href="#votacao" className="pb-6 px-2 hover:border-b-8 hover:border-blue-bp scroll-smooth">
-              VOTAÇÃO
-            </a>
-          </li>
-          <li className="my-6 md:my-0">
-            <a href="#sobre" className="pb-6 px-2 hover:border-b-8 hover:border-blue-bp scroll-smooth">
-              SOBRE NÓS
-            </a>
-          </li>
-          <li className="my-6 md:my-0 ">
-            <a href="#galeria" className="pb-6 px-2 hover:border-b-8 hover:border-blue-bp scroll-smooth">
-              GALERIA
-            </a>
-          </li>
-          <button className="uppercase bg-pink-bp text-white p-3">
-            Cadastre-se
-          </button>
-        </ul>
-      </div>*/}
-
 {/*  BANNER BICHO  */}
       <Slider {...sliderBanner}>
         <div id="inicio" className="md:h-auto md:w-auto">
-          <img className="object-cover w-full h-full" src={banner} alt="banner" />
+          <img className="w-full h-full object-cover md:object-contain" src={banner} alt="banner" />
         </div>
         <div id="inicio" className="md:h-auto md:w-auto">
-          <img className="object-cover w-full h-full" src={banner} alt="banner" />
+          <img className="w-full h-full object-cover md:object-contain" src={banner} alt="banner" />
         </div>
       </Slider>
 
