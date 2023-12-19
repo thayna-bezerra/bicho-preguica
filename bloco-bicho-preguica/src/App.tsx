@@ -17,6 +17,7 @@ import fb from "./assets/facebook.png"
 import insta from "./assets/instagram.png"
 
 export function App() {
+  {/* */}
   const sliderBanner = {
     arrows: false,
     dots: false,
@@ -66,10 +67,71 @@ export function App() {
       }
     ]
   }
+  
+  function Menu(e: React.MouseEvent<HTMLImageElement>) {
+    const list = document.querySelector("ul");
+    e.currentTarget.name === "menu"
+      ? ((e.currentTarget.name = "close"),
+        list?.classList.add("top-[80px]"),
+        list?.classList.add("opacity-100"))
+      : ((e.currentTarget.name = "menu"),
+        list?.classList.remove("top-[80px]"),
+        list?.classList.remove("opacity-100"));
+  }
 
   return (
     <>
-      {/*  HEADER  */}   
+    <div className="bg-white h-24 w-full px-4 md:px-20 flex items-center justify-between">
+      <div className="order-1 md:order-2">
+        <div> 
+          <span className="w-[32px] cursor-pointer md:hidden block">
+            <img onClick={Menu} src={menu} alt="icon menu" />
+          </span>
+        </div>
+        
+        <ul className="text-lg md:text-base gap-10 font-bold text-yellow-bp tracking-1.3 text-uppercase mt-4 md:mt-0 tracking-1.3 md:flex md:items-center z-10  md:static absolute bg-white w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500">
+          <li className="my-6 md:my-0">
+            <a href="#inicio" className="pb-8 px-2 hover:border-b-8 hover:border-blue-bp scroll-smooth">
+              INÍCIO
+            </a>
+          </li>
+          <li className="my-6 md:my-0">
+            <a href="#votacao" className="pb-8 px-2 hover:border-b-8 hover:border-blue-bp scroll-smooth">
+              VOTAÇÃO
+            </a>
+          </li>
+          <li className="my-6 md:my-0">
+            <a href="#sobre" className="pb-8 px-2 hover:border-b-8 hover:border-blue-bp scroll-smooth">
+              SOBRE NÓS
+            </a>
+          </li>
+          <li className="my-6 md:my-0 ">
+            <a href="#galeria" className="pb-8 px-2 hover:border-b-8 hover:border-blue-bp scroll-smooth">
+              GALERIA
+            </a>
+          </li>
+          <li className="block md:hidden text-pink-bp my-6 md:my-0">
+            <a href="#galeria" className="pb-8 px-2 hover:border-b-8 hover:border-blue-bp scroll-smooth">
+              CADASTRE-SE
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div className="order-2 md:order-1"> 
+        <a href="/index.html" className="">
+          <img className="w-24 md:h-auto" src={logo} alt="logo-bicho-preguiça" />
+        </a>
+      </div>
+
+      <div className="order-3 flex gap-11 justify-around">
+        <button className="hidden md:block uppercase bg-pink-bp text-white p-3">
+          Cadastre-se
+        </button>
+      </div>
+    </div>
+
+      {/*  HEADER     
       <div className="bg-white px-4 flex items-center justify-between">
         <div>
           <img className="w-28 md:w-20 py-2" src={logo} alt="logo-bicho-preguiça" />
@@ -81,9 +143,9 @@ export function App() {
           </span>
         </div>
         
-        <ul className="text-lg gap-10 font-bold text-yellow-bp md:mt-0 mt-[29px] tracking-1.3 text-uppercase md:flex md:items-center md:justify-around md:static absolute bg-white w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7">
+        <ul className="text-lg gap-10 font-bold text-yellow-bp tracking-1.3 text-uppercase absolute bg-white w-full left-0 pl-7 md:justify-around md:static md:w-auto md:py-0 py-4 md:pl-0 md:mt-0 md:flex md:items-center">
           <li className="my-6 md:my-0">
-            <a href="#inicio" className="pb-6 px-2 hover:border-b-8 hover:border-blue-bp scroll-smooth">
+            <a href="#inicio" className="pb-8 px-2 hover:border-b-8 hover:border-blue-bp scroll-smooth">
               INÍCIO
             </a>
           </li>
@@ -106,7 +168,7 @@ export function App() {
             Cadastre-se
           </button>
         </ul>
-      </div>
+      </div>*/}
 
 {/*  BANNER BICHO  */}
       <Slider {...sliderBanner}>
@@ -160,7 +222,6 @@ export function App() {
           </button>
         </div>
 
-
         <Slider className="flex justify-around md:col-span-2 p-4 gap-4" {...sliderPatrocinadores}>
           <div className="flex justify-around md:col-span-2 p-4 gap-4">
             <img className="w-full h-full" src={patrocinador} alt="patrocinador1" />
@@ -181,21 +242,6 @@ export function App() {
         </div>
       </div>
 
-{/* 
-        <div className="md:block hidden">
-          <button className="uppercase rounded-xl font-extrabold text-2xl w-full h-full p-3 bg-yellow-bp text-white border-2 border-purple-bp">
-            <span className="text-xs font-bold text-pink-bp">Clique aqui</span><br />
-            Seja um<br/> patrocinador
-          </button>
-        </div>
-
-      <div className="bg-purple-bp h-auto flex justify-center p-1">
-        <button className="uppercase rounded-xl font-extrabold text-2xl w-full h-full p-3 bg-yellow-bp text-white border-2 border-purple-bp">
-          <span className="text-xs font-bold text-pink-bp">Clique aqui</span><br />
-          Seja um<br/> patrocinador
-        </button>
-      </div>
-*/}
 
 {/*  SOBRE NÓS  */}
       <div id="sobre" className="bg-blue-bp h-auto flex flex-col md:flex-row justify-center items-center gap-5">
@@ -233,7 +279,7 @@ export function App() {
             <div className="flex justify-around md:col-span-2 p-2 gap-4">
               <img className="w-full h-full" src={pic} alt="pic1" />
             </div>
-          </Slider>
+          </Slider> 
         </div>
 
         <div className="flex flex-col items-center justify-center pt-8 pb-8 md:flex-row md:items-center md:justify-center md:gap-16 lg:pt-40 lg:pb-32">
