@@ -242,8 +242,8 @@ export function App() {
             </div>
           </Slider> 
         </div>
-
-        <div className="flex flex-col items-center justify-center pt-8 pb-8 md:flex-row md:items-center md:justify-center md:gap-16 lg:pt-40 lg:pb-32">
+{/* 
+        <div className="md:flex-row md:justify-center md:gap-16 lg:pt-40 lg:pb-32">
           <div className="flex gap-5">
             <a href="#">
               <img src={wpp} alt=""/>
@@ -259,9 +259,25 @@ export function App() {
           <button className="bg-yellow-bp rounded-md uppercase text-white text-lg font-bold p-4 mt-4 md:mt-0">
             Seja um patrocinador
           </button>
-        </div>
+        </div>*/}
+          <div className="flex flex-col items-center justify-between pt-20 pb-10 md:mx-16 md:flex-row">
+            <div className="flex gap-10 md:self-end md:w-full">
+              <a href="#" className="w-12 h-12">
+                <img src={wpp} alt="WhatsApp"/>
+              </a>
+              <a href="#" className="w-12 h-12">
+                <img src={fb} alt="Facebook"/>
+              </a>
+              <a href="#" className="w-12 h-12">
+                <img src={insta} alt="Instagram"/>
+              </a>
+            </div>
 
-      </div>
+            <button className="bg-yellow-bp text-white rounded-md uppercase text-base font-bold md:w-full p-4 mt-8">
+              Seja um patrocinador
+            </button>
+          </div>
+        </div>
     </>
   );
 }
