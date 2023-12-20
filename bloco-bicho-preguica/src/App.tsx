@@ -144,10 +144,10 @@ export function App() {
 {/*  VOTAÇÃO ABADÁ  */}
       <div id="votacao" className="flex flex-col justify-center items-center gap-5 bg-blue-bp h-auto p-4 mt-2">
         <div className="flex flex-col items-center text-white">
-          <p className="uppercase text-sm">
+          <p className="uppercase text-lg">
             Vote e escolha no abadá do 
           </p>
-          <p className="text-lg font-bold">
+          <p className="text-lg md:text-2xl font-bold">
             BICHO PREGUIÇA
           </p>
         </div>
@@ -162,7 +162,7 @@ export function App() {
         </div>
 
         <div>
-          <button className="rounded-full m-4 px-8 py-2 font-bold text-xs uppercase text-white bg-pink-bp">
+          <button className="rounded-full m-4 px-8 py-2 font-bold text-sm md:text-lg uppercase text-white bg-pink-bp">
             Confirmar escolha
           </button>
         </div>
@@ -171,7 +171,7 @@ export function App() {
 
 {/*  PATROCINADORES  */}
       <div className="bg-pink-bp h-auto py-12">
-        <p className="uppercase text-lg md:text-3xl p-4 font-bold text-white">
+        <p className="uppercase text-lg md:text-2xl p-4 font-bold text-white">
           Patrocinadores oficiais
         </p>
 
@@ -207,7 +207,7 @@ export function App() {
 {/*  SOBRE NÓS  */}
       <div id="sobre" className="bg-blue-bp h-auto flex flex-col md:flex-row justify-center items-center">
         <div className="text-white text-center py-5">
-          <p className="uppercase text-lg md:text-xl pb-5 font-bold text-white">
+          <p className="uppercase text-lg md:text-2xl pb-5 font-bold text-white">
             Sobre nós
           </p>
           <p className="text-sm md:text-lg px-10">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium iure incidunt nulla obcaecati nobis sunt excepturi quas perferendis doloremque quia, dolorum expedita! Ipsum molestiae magni minima? Voluptatum, eligendi sint? Sed?</p>
@@ -221,7 +221,7 @@ export function App() {
       <div id="galeria" className="relative bg-cover" style={{ backgroundImage: `url(${bg})` }}>
         <div>
           <div className="flex items-center justify-center py-10 text-white text-center">
-            <h1 className="text-4xl font-bold mb-4">GALERIA</h1>
+            <h1 className="text-lg md:text-2xl font-bold mb-4">GALERIA</h1>
           </div>
 
           <Slider {...sliderGallery}> 
