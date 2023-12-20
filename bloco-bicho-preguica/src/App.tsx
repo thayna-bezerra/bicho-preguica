@@ -153,7 +153,7 @@ export function App() {
         </div>
 
         <div>
-          <div className="md:flex md:flex-items grid grid-cols-2 gap-x-10 gap-y-6">
+          <div className="lg:flex lg:flex-items grid grid-cols-2 gap-x-10 gap-y-6">
             <img src={abada} alt="abada1" />
             <img src={abada} alt="abada2" />
             <img src={abada} alt="abada3" />
@@ -205,12 +205,12 @@ export function App() {
 
 
 {/*  SOBRE NÓS  */}
-      <div id="sobre" className="bg-blue-bp h-auto flex flex-col md:flex-row justify-center items-center gap-5">
-        <div className="text-white text-center">
-          <p className="uppercase text-lg md:text-xl pb-10 font-bold text-white">
+      <div id="sobre" className="bg-blue-bp h-auto flex flex-col md:flex-row justify-center items-center">
+        <div className="text-white text-center py-5">
+          <p className="uppercase text-lg md:text-xl pb-5 font-bold text-white">
             Sobre nós
           </p>
-          <p className="text-sm md:text-lg px-28">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium iure incidunt nulla obcaecati nobis sunt excepturi quas perferendis doloremque quia, dolorum expedita! Ipsum molestiae magni minima? Voluptatum, eligendi sint? Sed?</p>
+          <p className="text-sm md:text-lg px-10">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium iure incidunt nulla obcaecati nobis sunt excepturi quas perferendis doloremque quia, dolorum expedita! Ipsum molestiae magni minima? Voluptatum, eligendi sint? Sed?</p>
         </div>
         <div className="w-full">
           <img className="w-full h-full object-cover" src={sobre} alt="sobre nos" />
