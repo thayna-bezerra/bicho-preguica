@@ -170,36 +170,36 @@ export function App() {
       </div>
 
 {/*  PATROCINADORES  */}
-      <div className="bg-pink-bp h-auto py-12">
+      <div className="bg-pink-bp h-auto py-8">
         <p className="uppercase text-lg md:text-2xl p-4 font-bold text-white">
           Patrocinadores oficiais
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3">
-        <div className="md:col-span-1 p-4 mr-3 flex flex-col justify-center items-center">
-          <button className="blinking-button uppercase font-extrabold text-xl w-full border-none p-3 py-7 bg-yellow-bp text-white border-2">
-            <span className="text-xs md:font-xl font-bold text-pink-bp">Clique aqui</span><br />
-            Seja um<br/> patrocinador
-          </button>
-        </div>
+          <div className="order-2 md:order-1 md:col-span-1 p-4 mr-3 flex flex-col justify-center items-center">
+            <button className="blinking-button m-5 uppercase font-extrabold text-xl w-full border-none p-3 py-7 bg-yellow-bp text-white border-2">
+              <span className="text-xs md:font-xl font-bold text-pink-bp">Clique aqui</span><br />
+              Seja um<br/> patrocinador
+            </button>
+          </div>
 
-        <Slider className="flex justify-around md:col-span-2 p-4 gap-4" {...sliderPatrocinadores}>
-          <div className="flex justify-around md:col-span-2 p-4 gap-4">
-            <img className="w-full h-full" src={patrocinador} alt="patrocinador1" />
-          </div>
-          <div className="flex justify-around md:col-span-2 p-4 gap-4">
-            <img className="w-full h-full" src={patrocinador} alt="patrocinador1" />
-          </div>
-          <div className="flex justify-around md:col-span-2 p-4 gap-4">
-            <img className="w-full h-full" src={patrocinador} alt="patrocinador1" />
-          </div>
-          <div className="flex justify-around md:col-span-2 p-4 gap-4">
-            <img className="w-full h-full" src={patrocinador} alt="patrocinador1" />
-          </div>
-          <div className="flex justify-around md:col-span-2 p-4 gap-4">
-            <img className="w-full h-full" src={patrocinador} alt="patrocinador1" />
-          </div>
-        </Slider> 
+          <Slider className="order-1 md:order-2 flex justify-around md:col-span-2 p-4 gap-4" {...sliderPatrocinadores}>
+            <div className="flex justify-around md:col-span-2 p-4 gap-4">
+              <img className="w-full h-full" src={patrocinador} alt="patrocinador1" />
+            </div>
+            <div className="flex justify-around md:col-span-2 p-4 gap-4">
+              <img className="w-full h-full" src={patrocinador} alt="patrocinador1" />
+            </div>
+            <div className="flex justify-around md:col-span-2 p-4 gap-4">
+              <img className="w-full h-full" src={patrocinador} alt="patrocinador1" />
+            </div>
+            <div className="flex justify-around md:col-span-2 p-4 gap-4">
+              <img className="w-full h-full" src={patrocinador} alt="patrocinador1" />
+            </div>
+            <div className="flex justify-around md:col-span-2 p-4 gap-4">
+              <img className="w-full h-full" src={patrocinador} alt="patrocinador1" />
+            </div>
+          </Slider> 
         </div>
       </div>
 
@@ -242,42 +242,25 @@ export function App() {
             </div>
           </Slider> 
         </div>
-{/* 
-        <div className="md:flex-row md:justify-center md:gap-16 lg:pt-40 lg:pb-32">
-          <div className="flex gap-5">
-            <a href="#">
-              <img src={wpp} alt=""/>
+
+        <div className="flex flex-col items-center justify-between pt-20 pb-10 md:mx-16 md:flex-row">
+          <div className="flex gap-10 md:self-end md:w-full">
+            <a href="#" className="w-12 h-12">
+              <img src={wpp} alt="WhatsApp"/>
             </a>
-            <a href="#">
-              <img src={fb} alt=""/>
+            <a href="#" className="w-12 h-12">
+              <img src={fb} alt="Facebook"/>
             </a>
-            <a href="#">
-              <img src={insta} alt=""/>
+            <a href="#" className="w-12 h-12">
+              <img src={insta} alt="Instagram"/>
             </a>
           </div>
 
-          <button className="bg-yellow-bp rounded-md uppercase text-white text-lg font-bold p-4 mt-4 md:mt-0">
+          <button className="bg-yellow-bp text-white rounded-md uppercase text-base font-bold md:w-full p-4 mt-8">
             Seja um patrocinador
           </button>
-        </div>*/}
-          <div className="flex flex-col items-center justify-between pt-20 pb-10 md:mx-16 md:flex-row">
-            <div className="flex gap-10 md:self-end md:w-full">
-              <a href="#" className="w-12 h-12">
-                <img src={wpp} alt="WhatsApp"/>
-              </a>
-              <a href="#" className="w-12 h-12">
-                <img src={fb} alt="Facebook"/>
-              </a>
-              <a href="#" className="w-12 h-12">
-                <img src={insta} alt="Instagram"/>
-              </a>
-            </div>
-
-            <button className="bg-yellow-bp text-white rounded-md uppercase text-base font-bold md:w-full p-4 mt-8">
-              Seja um patrocinador
-            </button>
-          </div>
         </div>
+      </div>
     </>
   );
 }
