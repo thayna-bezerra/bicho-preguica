@@ -4,11 +4,8 @@ import "slick-carousel/slick/slick-theme.css";
 
 import "./index.css";
 
-import logo from "./assets/logo.png"
 import banner from "./assets/banner.png"
-import abada from "./assets/abada.png"
 import patrocinador from "./assets/patrocinador.png"
-import menu from "./assets/icon-menu.png"
 import sobre from "./assets/sobre-nos.png"
 import bg from "./assets/bg.png"
 import pic from "./assets/pic.png"
@@ -16,8 +13,10 @@ import wpp from "./assets/whatsapp.png"
 import fb from "./assets/facebook.png"
 import insta from "./assets/instagram.png"
 
+import { Header } from "./components/Header";
+import { EventShirtSurvey } from "./components/EventShirtSurvey";
+
 export function App() {
-  {/* */}
   const sliderBanner = {
     arrows: false,
     dots: false,
@@ -82,71 +81,12 @@ export function App() {
       }
     ]
   }
-  
-  function Menu(e: React.MouseEvent<HTMLImageElement>) {
-    const list = document.querySelector("ul");
-    e.currentTarget.name === "menu"
-      ? ((e.currentTarget.name = "close"),
-        list?.classList.add("top-[80px]"),
-        list?.classList.add("opacity-100"))
-      : ((e.currentTarget.name = "menu"),
-        list?.classList.remove("top-[80px]"),
-        list?.classList.remove("opacity-100"));
-  }
 
   return (
     <>
-    <div className="bg-white h-24 w-full px-4 md:px-20 flex items-center justify-between">
-      <div className="order-1 md:order-2">
-        <div> 
-          <span className="w-[32px] cursor-pointer md:hidden block">
-            <img onClick={Menu} src={menu} alt="icon menu" />
-          </span>
-        </div>
-        
-        <ul className="text-lg md:text-base gap-10 font-bold text-yellow-bp tracking-1.3 text-uppercase mt-4 md:mt-0 tracking-1.3 md:flex md:items-center z-10  md:static absolute bg-white w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500">
-          <li className="my-6 md:my-0">
-            <a href="#inicio" className="pb-8 px-2 hover:border-b-8 hover:border-blue-bp scroll-smooth">
-              INÍCIO
-            </a>
-          </li>
-          <li className="my-6 md:my-0">
-            <a href="#votacao" className="pb-8 px-2 hover:border-b-8 hover:border-blue-bp scroll-smooth">
-              VOTAÇÃO
-            </a>
-          </li>
-          <li className="my-6 md:my-0">
-            <a href="#sobre" className="pb-8 px-2 hover:border-b-8 hover:border-blue-bp scroll-smooth">
-              SOBRE NÓS
-            </a>
-          </li>
-          <li className="my-6 md:my-0 ">
-            <a href="#galeria" className="pb-8 px-2 hover:border-b-8 hover:border-blue-bp scroll-smooth">
-              GALERIA
-            </a>
-          </li>
-          <li className="block md:hidden text-pink-bp my-6 md:my-0">
-            <a href="#galeria" className="pb-8 px-2 hover:border-b-8 hover:border-blue-bp scroll-smooth">
-              CADASTRE-SE
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      <div className="order-2 md:order-1"> 
-        <a href="/index.html" className="">
-          <img className="w-24 md:h-auto" src={logo} alt="logo-bicho-preguiça" />
-        </a>
-      </div>
-
-      <div className="order-3 flex gap-11 justify-around">
-        <button className="hidden md:block uppercase bg-pink-bp text-white p-3">
-          Cadastre-se
-        </button>
-      </div>
-    </div>
-
-{/*  BANNER BICHO  */}
+      <Header />
+      
+      {/*  BANNER BICHO  */}
       <Slider {...sliderBanner}>
         <div id="inicio" className="md:h-auto md:w-auto">
           <img className="w-full h-full object-cover md:object-contain" src={banner} alt="banner" />
@@ -156,33 +96,8 @@ export function App() {
         </div>
       </Slider>
 
-{/*  VOTAÇÃO ABADÁ  */}
-      <div id="votacao" className="flex flex-col justify-center items-center gap-5 bg-blue-bp h-auto p-4 mt-2">
-        <div className="flex flex-col items-center text-white">
-          <p className="uppercase text-lg">
-            Vote e escolha no abadá do 
-          </p>
-          <p className="text-lg md:text-2xl font-bold">
-            BICHO PREGUIÇA
-          </p>
-        </div>
+      <EventShirtSurvey />
 
-        <div>
-          <div className="lg:flex lg:flex-items grid grid-cols-2 gap-x-10 gap-y-6">
-            <img src={abada} alt="abada1" />
-            <img src={abada} alt="abada2" />
-            <img src={abada} alt="abada3" />
-            <img src={abada} alt="abada4" />
-          </div>
-        </div>
-
-        <div>
-          <button className="rounded-full m-4 px-8 py-2 font-bold text-sm md:text-lg uppercase text-white bg-pink-bp">
-            Confirmar escolha
-          </button>
-        </div>
-
-      </div>
 
 {/*  PATROCINADORES  */}
       <div className="bg-pink-bp h-auto py-8">
