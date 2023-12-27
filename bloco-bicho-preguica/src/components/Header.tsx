@@ -1,5 +1,5 @@
-import logo from "./assets/logo.png"
-import menu from "./assets/icon-menu.png"
+import logo from "../assets/logo.png"
+import menu from "../assets/icon-menu.png"
 
 export function Header() {
       

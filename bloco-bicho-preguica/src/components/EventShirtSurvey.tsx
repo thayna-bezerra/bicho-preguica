@@ -1,4 +1,4 @@
-import abada from "./assets/abada.png"
+import abada from "../assets/abada.png"
 
 export function EventShirtSurvey(){
     return(
