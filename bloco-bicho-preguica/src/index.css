@@ -64,7 +64,7 @@ li.cursor-pointer.open .arrow-icon {
 }
 
 .slick-dots {
-  @apply flex justify-center;
+  @apply flex justify-center -mt-20 mb-8;
 }
 
 .slick-dots li {
@@ -72,7 +72,7 @@ li.cursor-pointer.open .arrow-icon {
 }
 
 .slick-dots li button {
-  @apply block w-4 h-1 bg-pink-bp cursor-pointer rounded-lg border-none transition-all duration-300;
+  @apply block w-2 h-1 bg-pink-bp cursor-pointer rounded-lg border-none transition-all duration-300;
 }
 
 .slick-dots li.slick-active button {
@@ -81,7 +81,7 @@ li.cursor-pointer.open .arrow-icon {
 
 
 .slick-dots li.slick-active button {
-  @apply w-14 h-1 bg-gray-400; /* Cor alterada quando ativo */
+  @apply w-14 h-1 bg-white; /* Cor alterada quando ativo */
 }
 
 .slick-dots li button:before {
@@ -92,5 +92,5 @@ li.cursor-pointer.open .arrow-icon {
   width: 10px !important;
   height: 10px !important;
   border-radius: 25px !important;
-  border: 1px solid gray !important;
+  border: 1px solid white !important;
 }

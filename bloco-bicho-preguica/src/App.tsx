@@ -33,9 +33,24 @@ export function App() {
     infinite: true,
     speed: 500,
     slidesToShow: 4,
-    slideToScroll: 5,
     autoplay: true, 
     autoplaySpeed: 1000,
+    responsive: [
+      {
+        breakpoint: 846,
+        settings: {
+          arrows: false,
+          slidesToShow: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          arrows: false,
+          slidesToShow: 2
+        }
+      }
+    ]
   }
 
   const sliderGallery = {
@@ -177,7 +192,7 @@ export function App() {
 
         <div className="grid grid-cols-1 md:grid-cols-3">
           <div className="order-2 md:order-1 md:col-span-1 p-4 mr-3 flex flex-col justify-center items-center">
-            <button className="blinking-button m-5 uppercase font-extrabold text-xl w-full border-none p-3 py-7 bg-yellow-bp text-white border-2">
+            <button className="blinking-button m-5 uppercase md:font-extrabold md:text-xl font-bold text-base w-full border-none p-3 py-7 bg-yellow-bp text-white border-2">
               <span className="text-xs md:font-xl font-bold text-pink-bp">Clique aqui</span><br />
               Seja um<br/> patrocinador
             </button>
