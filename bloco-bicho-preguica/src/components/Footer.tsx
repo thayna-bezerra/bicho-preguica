@@ -1,6 +1,6 @@
-import wpp from "./assets/whatsapp.png"
-import fb from "./assets/facebook.png"
-import insta from "./assets/instagram.png"
+import wpp from "../assets/whatsapp.png"
+import fb from "../assets/facebook.png"
+import insta from "../assets/instagram.png"
 
 export function Footer() {
     return (
