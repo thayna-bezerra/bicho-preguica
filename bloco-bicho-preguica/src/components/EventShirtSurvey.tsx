@@ -3,6 +3,22 @@ import abada from "../assets/abada.png"
 export function EventShirtSurvey(){
     return(
         <div id="votacao" className="flex flex-col justify-center items-center gap-5 bg-blue-bp h-auto p-4 mt-2">
+            <iframe 
+              src="https://docs.google.com/forms/d/e/1FAIpQLSeN0McpFHwhd6ENd6VsL5oeyGj7YFUuVHkVxNUmuMEhjZGopA/viewform?embedded=true" 
+              width="640" 
+              height="929" 
+              frameborder="0" 
+              marginheight="0" 
+              marginwidth="0"
+              >
+                Carregando…
+            </iframe>
+        </div>
+    )
+}
+
+{/*
+
           <div className="flex flex-col items-center text-white">
             <p className="uppercase text-lg">
               Vote e escolha no abadá do 
@@ -27,6 +43,5 @@ export function EventShirtSurvey(){
             </button>
           </div>
 
-        </div>
-    )
-}
+
+*/}
