@@ -2,13 +2,21 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
-import abada from "../assets/abada.png"
+import abada from "../assets/facebook.png"
 
 export function EventShirtSurvey(){  
   const [opcoesAbada, setOpcoesAbada] = useState(['Abadá 1', 'Abadá 2', 'Abadá 3', 'Abadá 4']);
   const [voto, setVoto] = useState('');
   const [resultados, setResultados] = useState<Record<string, number>>({});
-  
+
+  // Mapa entre opções de abadá e URLs das imagens correspondentes
+  const imagensOpcoesAbada: Record<string, string> = {
+    'Abadá 1': "https://www.trindadeuniformes.com.br/wp-content/uploads/2021/12/produto-abada-carnaval-02.png",
+    'Abadá 2': "https://www.trindadeuniformes.com.br/wp-content/uploads/2021/12/produto-abada-carnaval-03.png",
+    'Abadá 3': "https://www.trindadeuniformes.com.br/wp-content/uploads/2021/12/produto-abada-carnaval-02.png",
+    'Abadá 4': "https://www.trindadeuniformes.com.br/wp-content/uploads/2021/12/produto-abada-carnaval-03.png",
+  };
+
   useEffect(() => {
     // Obter resultados da enquete ao carregar o componente
     obterResultados();
@@ -39,17 +47,31 @@ export function EventShirtSurvey(){
 
     return(
         <div id="votacao" className="flex flex-col justify-center items-center gap-5 bg-blue-bp h-auto p-4 mt-2">
-          <h2>Escolha seu Abadá</h2>
-          <ul>
+          <div className="flex flex-col items-center text-white">
+            <p className="uppercase text-lg">
+              Vote e escolha no abadá do 
+            </p>
+            <p className="text-lg md:text-2xl font-bold">
+              BICHO PREGUIÇA
+            </p>
+          </div>
+          
+          <ul className="lg:flex lg:flex-items grid grid-cols-2 gap-x-10 gap-y-6">
             {opcoesAbada.map((opcao, index) => (
-              <li key={index}>
+              <li key={index} className="flex items-center">
                 <button onClick={() => setVoto(opcao)}>{opcao}</button>
+                <img src={imagensOpcoesAbada[opcao]} alt={`Imagem ${opcao}`} className="w-52 h-52"/>
               </li>
             ))}
           </ul>
-          <button onClick={handleVoto}>Votar</button>
 
-          <h3>Resultados:</h3>
+          <div>
+            <button onClick={handleVoto} className="rounded-full m-4 px-8 py-2 font-bold text-sm md:text-lg uppercase text-white bg-pink-bp">
+              Confirmar escolha
+            </button>
+          </div>
+
+          <h3 className="uppercase text-lg text-white font-semibold">Resultados:</h3>
           
           <ResponsiveContainer width="100%" height={300}>
             <BarChart
@@ -62,7 +84,7 @@ export function EventShirtSurvey(){
               <YAxis dataKey="category" type="category" />
               <Tooltip />
               <Legend />
-              <Bar dataKey="value" fill="#rgba(75,192,192,0.4)" />
+              <Bar dataKey="value" fill="#336dd8" />
             </BarChart>
           </ResponsiveContainer>
         </div>
@@ -70,16 +92,6 @@ export function EventShirtSurvey(){
 }
 
 {/*
-
-          <div className="flex flex-col items-center text-white">
-            <p className="uppercase text-lg">
-              Vote e escolha no abadá do 
-            </p>
-            <p className="text-lg md:text-2xl font-bold">
-              BICHO PREGUIÇA
-            </p>
-          </div>
-  
           <div>
             <div className="lg:flex lg:flex-items grid grid-cols-2 gap-x-10 gap-y-6">
               <img src={abada} alt="abada1" />
@@ -89,9 +101,4 @@ export function EventShirtSurvey(){
             </div>
           </div>
   
-          <div>
-            <button className="rounded-full m-4 px-8 py-2 font-bold text-sm md:text-lg uppercase text-white bg-pink-bp">
-              Confirmar escolha
-            </button>
-          </div>
 */}
