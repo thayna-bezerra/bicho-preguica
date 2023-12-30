@@ -9,6 +9,8 @@ export function EventShirtSurvey(){
   const [voto, setVoto] = useState('');
   const [resultados, setResultados] = useState<Record<string, number>>({});
 
+  const [imagemSelecionada, setImagemSelecionada] = useState<string | null>(null);
+
   // Mapa entre opções de abadá e URLs das imagens correspondentes
   const imagensOpcoesAbada: Record<string, string> = {
     'Abadá 1': "https://www.trindadeuniformes.com.br/wp-content/uploads/2021/12/produto-abada-carnaval-02.png",
@@ -58,9 +60,21 @@ export function EventShirtSurvey(){
           
           <ul className="lg:flex lg:flex-items grid grid-cols-2 gap-x-10 gap-y-6">
             {opcoesAbada.map((opcao, index) => (
-              <li key={index} className="flex items-center">
-                <button onClick={() => setVoto(opcao)}>{opcao}</button>
-                <img src={imagensOpcoesAbada[opcao]} alt={`Imagem ${opcao}`} className="w-52 h-52"/>
+              <li key={index} className="flex flex-col items-center">
+                <button
+                  onClick={() => {
+                    setVoto(opcao);
+                    setImagemSelecionada(opcao);
+                  }}
+                  className={`w-52 h-52 ${imagemSelecionada === opcao ? 'border-8 rounded-md border-pink-bp' : ''}`}
+                >
+                  <img
+                    src={imagensOpcoesAbada[opcao]}
+                    alt={`Imagem ${opcao}`}
+                    className="w-full h-full"
+                  />
+                </button>
+                <p className="mt-2 text-center text-white">{opcao}</p>
               </li>
             ))}
           </ul>
@@ -84,21 +98,9 @@ export function EventShirtSurvey(){
               <YAxis dataKey="category" type="category" />
               <Tooltip />
               <Legend />
-              <Bar dataKey="value" fill="#336dd8" />
+              <Bar dataKey="value" fill="#FF0066" />
             </BarChart>
           </ResponsiveContainer>
         </div>
     )
 }
-
-{/*
-          <div>
-            <div className="lg:flex lg:flex-items grid grid-cols-2 gap-x-10 gap-y-6">
-              <img src={abada} alt="abada1" />
-              <img src={abada} alt="abada2" />
-              <img src={abada} alt="abada3" />
-              <img src={abada} alt="abada4" />
-            </div>
-          </div>
-  
-*/}

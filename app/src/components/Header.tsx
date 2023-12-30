@@ -59,7 +59,7 @@ export function Header() {
             </div>
 
             <div className="order-3 flex gap-11 justify-around">
-                <button className="hidden md:block uppercase bg-pink-bp text-white p-3">
+                <button className="hidden rounded-md font-semibold md:block uppercase bg-pink-bp text-white p-3">
                     Cadastre-se
                 </button>
             </div>
