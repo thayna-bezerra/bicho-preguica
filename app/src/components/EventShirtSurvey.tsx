@@ -97,7 +97,6 @@ export function EventShirtSurvey(){
               <XAxis type="number" />
               <YAxis dataKey="category" type="category" />
               <Tooltip />
-              <Legend />
               <Bar dataKey="value" fill="#FF0066" />
             </BarChart>
           </ResponsiveContainer>

@@ -12,17 +12,17 @@ import { BannerSection } from "./components/BannerSection";
 
 export function App() {
   return (
-    <>
-      <Header />
-      <BannerSection />
-      <EventShirtSurvey />
-      <Sponsors />
-      <AboutUs />
+      <>   
+        <Header />
+        <BannerSection />
+        <EventShirtSurvey />
+        <Sponsors />
+        <AboutUs />
 
-      <div id="galeria" className="relative bg-cover" style={{ backgroundImage: `url(${bg})` }}>
-        <Gallery />
-        <Footer />    
-      </div>
-    </>
+        <div id="galeria" className="relative bg-cover" style={{ backgroundImage: `url(${bg})` }}>
+          <Gallery />
+          <Footer />    
+        </div>
+      </>
   );
 }
