@@ -8,11 +8,18 @@ const port = 3001;
 app.use(cors());
 app.use(express.json());
 
+const dbConfig = {
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+};
+
 const db = mysql.createConnection({
-  host: 'seu-host-do-banco-de-dados',
-  user: 'seu-usuario-do-banco-de-dados',
-  password: 'sua-senha-do-banco-de-dados',
-  database: 'seu-nome-do-banco-de-dados'
+  host: dbConfig.host,
+  user: dbConfig.user,
+  password: dbConfig.password,
+  database: dbConfig.database
 });
 
 db.connect((err) => {
