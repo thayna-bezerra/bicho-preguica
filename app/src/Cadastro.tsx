@@ -8,7 +8,10 @@ const Cadastro: React.FC = () => {
   const [telefone, setTelefone] = useState('');
   const [participouAnteriormente, setParticipouAnteriormente] = useState(false);
   const [anosParticipacaoAnteriores, setAnosParticipacaoAnteriores] = useState('');
+  const [trabalharNoBloco, setTrabalharNoBloco] = useState('');
+
   const [foto, setFoto] = useState<File | null>(null);
+
   const [nomeArquivo, setNomeArquivo] = useState('');
 
   const handleParticipouAnteriormenteChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -135,8 +138,8 @@ const Cadastro: React.FC = () => {
                 Deseja trabalhar na produção do nosso bloco?
               </label>
               <select 
-                /*value={anosParticipacaoAnteriores} 
-                onChange={(e) => setAnosParticipacaoAnteriores(e.target.value)}*/
+                value={trabalharNoBloco} 
+                onChange={(e) => setTrabalharNoBloco(e.target.value)}
                 className="w-full mt-2 px-3 py-2 rounded-md bg-white text-gray-500"
               >
                 <option value="Não tenho interesse">Não tenho interesse</option>
@@ -158,7 +161,7 @@ const Cadastro: React.FC = () => {
             </div>
             <div className="w-full sm:w-2/6 relative border-dashed border-2 border-white p-4 rounded-md bg-white bg-opacity-30 cursor-pointer">
               <div className="flex items-center justify-center">
-                <img src={upload} alt="" />
+                <img src={upload} />
               </div>
 
               <p className="flex justify-center m-2 text-sm text-gray-600">
