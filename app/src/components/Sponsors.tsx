@@ -39,9 +39,12 @@ export function Sponsors() {
   
             <div className="grid grid-cols-1 md:grid-cols-3">
                 <div className="order-2 md:order-1 md:col-span-1 p-4 mr-3 flex flex-col justify-center items-center">
-                    <button className="blinking-button m-5 uppercase md:font-extrabold md:text-xl font-bold text-base w-full border-none p-3 py-7 bg-yellow-bp text-white border-2">
-                    <span className="text-xs md:font-xl font-bold text-pink-bp">Clique aqui</span><br />
-                        Seja um<br/> patrocinador
+                    <button 
+                        onClick={() => window.location.href='https://api.whatsapp.com/send?phone=+5599%209631-8324&text=Olá%2C+tudo+bom%3F+Eu+gostaria+de+ser+um+patrocinador+do+%2ABicho+Preguiça%2A%21+🦥🎉'} 
+                        className="blinking-button m-5 uppercase md:font-extrabold md:text-xl font-bold text-base w-full border-none p-3 py-7 bg-yellow-bp text-white border-2"
+                    >
+                        <span className="text-xs md:font-xl font-bold text-pink-bp">Clique aqui</span><br />
+                            Seja um<br/> patrocinador
                     </button>
                 </div>
 
