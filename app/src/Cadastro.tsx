@@ -14,10 +14,6 @@ const Cadastro: React.FC = () => {
 
   const [nomeArquivo, setNomeArquivo] = useState('');
 
-  const handleParticipouAnteriormenteChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setParticipouAnteriormente(e.target.value === 'Sim');
-  };
-
   const handleAnosParticipacaoAnterioresChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setAnosParticipacaoAnteriores(e.target.value);
   };
@@ -27,7 +23,8 @@ const Cadastro: React.FC = () => {
     if (arquivo && arquivo.length > 0) {
       const nomeDoArquivo = arquivo[0].name;
       setNomeArquivo(nomeDoArquivo);
-      // Aqui você pode fazer mais alguma coisa com o arquivo, se necessário
+
+      setFoto(arquivo[0])
     }
   };
 
