@@ -31,24 +31,51 @@ const Cadastro: React.FC = () => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Lógica para enviar dados do formulário
-    // ...
-
-    // Resetar o formulário após o envio
-    setNome('');
-    setEmail('');
-    setTelefone('');
-    setParticipouAnteriormente(false);
-    setAnosParticipacaoAnteriores('');
-    setFoto(null);
+  
+    const formData = new FormData();
+    formData.append('nome', nome);
+    formData.append('email', email);
+    formData.append('telefone', telefone);
+    formData.append('participou_anteriormente', participouAnteriormente ? '1' : '0');
+    formData.append('anos_participacao_anteriores', anosParticipacaoAnteriores);
+    formData.append('trabalhar_no_bloco', trabalharNoBloco);
+    if (foto) {
+      formData.append('foto', foto);
+    }
+  
+    try {
+      console.log('URL da requisição:', 'http://localhost:3001/cadastro');
+      const response = await fetch('http://localhost:3001/cadastro', {
+        method: 'POST',
+        body: formData,
+      });
+      
+  
+      if (response.ok) {
+        console.log('Cadastro realizado com sucesso!');
+        // Resetar o formulário após o envio
+        setNome('');
+        setEmail('');
+        setTelefone('');
+        setParticipouAnteriormente(false);
+        setAnosParticipacaoAnteriores('');
+        setFoto(null);
+      } else {
+        console.error('Erro ao cadastrar usuário:', response.statusText);
+        console.log(response)
+      }
+    } catch (error) {
+      console.error('Erro ao realizar a requisição:', error);
+    }
   };
+  
 
   return (
     <div className="relative bg-cover md:flex w-full md:h-screen justify-center items-center text-white" style={{ backgroundImage: `url(${bg})` }}>
       <section className="flex flex-col w-full sm:w-11/12 md:w-10/12 lg:w-8/12 xl:w-7/12 justify-center rounded-lg bg-white bg-opacity-50 shadow-xl py-8 px-4 sm:px-8 md:px-16 relative section-border">
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} action="http://localhost:3001/cadastro" method="post" encType="multipart/form-data">
           <div className="flex flex-col items-center justify-center mb-8">
             <p>
               CADASTRE-SE
@@ -104,7 +131,7 @@ const Cadastro: React.FC = () => {
                     type="radio"
                     value="Não"
                     checked={!participouAnteriormente}
-                    onChange={handleParticipouAnteriormenteChange}
+                    onChange={() => setParticipouAnteriormente(false)}
                     className="mr-2"
                   />
                   Não
@@ -115,7 +142,7 @@ const Cadastro: React.FC = () => {
                     type="radio" 
                     value="Sim" 
                     checked={participouAnteriormente} 
-                    onChange={handleParticipouAnteriormenteChange} 
+                    onChange={() => setParticipouAnteriormente(true)} 
                     className="mr-2"
                   />
                   Sim

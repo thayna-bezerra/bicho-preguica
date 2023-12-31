@@ -1,6 +1,10 @@
 const express = require('express');
 const cors = require('cors');
 const mysql = require('mysql');
+//const usuarios = require('./usuarios');
+
+const multer = require('multer');
+
 
 const app = express();
 const port = 3001;
@@ -9,6 +13,18 @@ app.use(cors());
 app.use(express.json());
 
 require('dotenv').config();
+
+//
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'uploads/');
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname);
+  },
+});
+const upload = multer({ storage: storage });
+
 
 const dbConfig = {
   host: process.env.DB_HOST,
@@ -32,6 +48,39 @@ db.connect((err) => {
   }
 });
 
+//app.use('/usuarios', usuarios);
+app.use(express.json())
+
+// U S U Á R I O //
+
+app.post('/cadastro', upload.single('foto'), (req, res) => {
+  const {
+    nome,
+    email,
+    telefone,
+    participou_anteriormente,
+    anos_participacao_anteriores,
+    trabalhar_no_bloco,
+  } = req.body;
+
+  const fotoPath = req.file ? req.file.path : null;
+// connection.query(
+  db.query(
+    'INSERT INTO usuarios (nome, email, telefone, participou_anteriormente, anos_participacao_anteriores, trabalhar_no_bloco, foto_path) VALUES (?, ?, ?, ?, ?, ?, ?)',
+    [nome, email, telefone, participou_anteriormente, anos_participacao_anteriores, trabalhar_no_bloco, fotoPath],
+    (err, results) => {
+      if (err) {
+        console.error(err);
+        res.status(500).send('Erro no servidor');
+      } else {
+        res.send('Cadastro realizado com sucesso!');
+      }
+    }
+  );
+  
+});
+
+// E N Q U E T E //
 app.get('/resultados', (req, res) => {
   // Obter resultados da enquete
   db.query('SELECT opcao, COUNT(*) as quantidade FROM votos GROUP BY opcao', (err, results) => {
