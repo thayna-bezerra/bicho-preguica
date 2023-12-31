@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import InputMask from 'react-input-mask'
+
 import upload from "./assets/file.png"
 import bg from "./assets/bg.png"
 
@@ -107,9 +109,13 @@ const Cadastro: React.FC = () => {
 
             <div className="w-full sm:w-3/5">
               <label>Telefone para contato:</label>
-              <input
+              <InputMask
+                mask="(99) 99999-9999"
                 type="tel"
-                placeholder="(99) 99999-9999"
+                id="phone"
+                name="telefone"
+                placeholder="Digite seu número de telefone"
+                required
                 value={telefone}
                 onChange={(e) => setTelefone(e.target.value)}
                 className="mt-2 w-full px-3 py-2 rounded-md bg-white text-gray-800  focus:outline-none focus:ring focus:ring-pink-bp"
