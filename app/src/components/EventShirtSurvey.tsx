@@ -66,7 +66,7 @@ export function EventShirtSurvey(){
                     setVoto(opcao);
                     setImagemSelecionada(opcao);
                   }}
-                  className={`w-52 h-52 ${imagemSelecionada === opcao ? 'border-8 rounded-md border-pink-bp' : ''}`}
+                  className={`sm:w-52 sm:h-52 ${imagemSelecionada === opcao ? 'border-8 rounded-md border-pink-bp' : ''}`}
                 >
                   <img
                     src={imagensOpcoesAbada[opcao]}
@@ -95,7 +95,7 @@ export function EventShirtSurvey(){
             >
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis type="number" />
-              <YAxis dataKey="category" type="category" />
+              <YAxis dataKey="category" type="category"  tick={{ fill: '#fff' }} />
               <Tooltip />
               <Bar dataKey="value" fill="#FF0066" />
             </BarChart>
