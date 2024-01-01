@@ -59,11 +59,12 @@ app.post('/cadastro', upload.single('foto'), (req, res) => {
   } = req.body;
 
   const fotoPath = req.file ? req.file.path : null;
+  const foto = req.file ? req.file.buffer : null;
 
   db.query(
-    'INSERT INTO usuarios (nome, email, telefone, participou_anteriormente, anos_participacao_anteriores, trabalhar_no_bloco, foto_path) VALUES (?, ?, ?, ?, ?, ?, ?)',
-    [nome, email, telefone, participou_anteriormente, anos_participacao_anteriores, trabalhar_no_bloco, fotoPath],
-    (err, results) => {
+    'INSERT INTO usuarios (nome, email, telefone, participou_anteriormente, anos_participacao_anteriores, trabalhar_no_bloco, foto_path, foto) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+    [nome, email, telefone, participou_anteriormente, anos_participacao_anteriores, trabalhar_no_bloco, fotoPath, foto],
+    (err, res) => {
       if (err) {
         console.error(err);
         res.status(500).send('Erro no servidor');
