@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import InputMask from 'react-input-mask'
+import CustomModal from './CustomModal'
 
 import upload from "./assets/file.png"
 import bg from "./assets/bg.png"
@@ -16,6 +17,16 @@ const Cadastro: React.FC = () => {
 
   const [nomeArquivo, setNomeArquivo] = useState('');
 
+  const [modalOpen, setModalOpen] = useState(false)
+
+  const openModal = () => {
+    setModalOpen(true)
+  }
+
+  const closeModal = () => {
+    setModalOpen(false)
+  }
+
   const handleAnosParticipacaoAnterioresChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setAnosParticipacaoAnteriores(e.target.value);
   };
@@ -27,8 +38,6 @@ const Cadastro: React.FC = () => {
     }
   };
   
-  
-
   {/**
   const handleFotoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const arquivo = e.target.files;
@@ -40,7 +49,6 @@ const Cadastro: React.FC = () => {
     }
   };
  */}
-
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -65,6 +73,7 @@ const Cadastro: React.FC = () => {
       
   
       if (response.ok) {
+        openModal()
         console.log('Cadastro realizado com sucesso!');
         // Resetar o formulário após o envio
         setNome('');
@@ -233,7 +242,9 @@ const Cadastro: React.FC = () => {
           >
             Finalizar Cadastro
           </button>
+          
         </form>
+        <CustomModal isOpen={modalOpen} onClose={closeModal} />
       </section>
     </div>
   );
