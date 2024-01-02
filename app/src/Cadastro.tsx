@@ -11,8 +11,8 @@ const Cadastro: React.FC = () => {
   const [participouAnteriormente, setParticipouAnteriormente] = useState(false);
   const [anosParticipacaoAnteriores, setAnosParticipacaoAnteriores] = useState('');
   const [trabalharNoBloco, setTrabalharNoBloco] = useState('');
-
-  const [foto, setFoto] = useState<File | null>(null);
+  const [foto, setFoto] = useState<File | null>(null); 
+  {/**const [foto, setFoto] = useState(null);*/}
 
   const [nomeArquivo, setNomeArquivo] = useState('');
 
@@ -20,6 +20,16 @@ const Cadastro: React.FC = () => {
     setAnosParticipacaoAnteriores(e.target.value);
   };
 
+  const handleFotoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setFoto(file);
+    }
+  };
+  
+  
+
+  {/**
   const handleFotoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const arquivo = e.target.files;
     if (arquivo && arquivo.length > 0) {
@@ -29,6 +39,8 @@ const Cadastro: React.FC = () => {
       setFoto(arquivo[0])
     }
   };
+ */}
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -40,12 +52,12 @@ const Cadastro: React.FC = () => {
     formData.append('participou_anteriormente', participouAnteriormente ? '1' : '0');
     formData.append('anos_participacao_anteriores', anosParticipacaoAnteriores);
     formData.append('trabalhar_no_bloco', trabalharNoBloco);
+    
     if (foto) {
       formData.append('foto', foto);
     }
   
     try {
-      console.log('URL da requisição:', 'http://localhost:3001/cadastro');
       const response = await fetch('http://localhost:3001/cadastro', {
         method: 'POST',
         body: formData,

@@ -2,8 +2,6 @@ const express = require('express');
 const cors = require('cors');
 const mysql = require('mysql');
 
-const multer = require('multer');
-
 const app = express();
 const port = 3001;
 
@@ -11,17 +9,6 @@ app.use(cors());
 app.use(express.json());
 
 require('dotenv').config();
-
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, 'uploads/');
-  },
-  filename: function (req, file, cb) {
-    cb(null, file.originalname);
-  },
-});
-
-const upload = multer({ storage: storage });
 
 const dbConfig = {
   host: process.env.DB_HOST,
@@ -48,7 +35,7 @@ db.connect((err) => {
 app.use(express.json())
 
 // U S U Á R I O //
-app.post('/cadastro', upload.single('foto'), (req, res) => {
+app.post('/cadastro', (req, response) => {
   const {
     nome,
     email,
@@ -57,23 +44,24 @@ app.post('/cadastro', upload.single('foto'), (req, res) => {
     anos_participacao_anteriores,
     trabalhar_no_bloco,
   } = req.body;
+  console.log('Dados recebidos:', { nome, email, telefone, participou_anteriormente, anos_participacao_anteriores, trabalhar_no_bloco });
 
-  const fotoPath = req.file ? req.file.path : null;
   const foto = req.file ? req.file.buffer : null;
 
   db.query(
-    'INSERT INTO usuarios (nome, email, telefone, participou_anteriormente, anos_participacao_anteriores, trabalhar_no_bloco, foto_path, foto) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
-    [nome, email, telefone, participou_anteriormente, anos_participacao_anteriores, trabalhar_no_bloco, fotoPath, foto],
-    (err, res) => {
+    'INSERT INTO usuarios (nome, email, telefone, participou_anteriormente, anos_participacao_anteriores, trabalhar_no_bloco, foto) VALUES (?, ?, ?, ?, ?, ?, ?)',
+    [nome, email, telefone, participou_anteriormente, anos_participacao_anteriores, trabalhar_no_bloco, foto],
+    (err, result) => {
       if (err) {
         console.error(err);
-        res.status(500).send('Erro no servidor');
+        response.status(500).send('Erro no servidor');
       } else {
-        res.send('Cadastro realizado com sucesso!');
+        console.log('Cadastro realizado com sucesso! :)');
+        response.send('Cadastro realizado com sucesso!');
+        console.log('Dados recebidos no backend:', req.body);
       }
     }
   );
-  
 });
 
 // E N Q U E T E //
