@@ -1,12 +1,15 @@
 const express = require('express');
 const cors = require('cors');
 const mysql = require('mysql');
-
+const multer = require('multer');
 const app = express();
 const port = 3001;
 
 app.use(cors());
 app.use(express.json());
+
+const storage = multer.memoryStorage(); // Salvar na memória, você pode personalizar o armazenamento conforme necessário
+const upload = multer({ storage: storage });
 
 require('dotenv').config();
 
@@ -35,7 +38,7 @@ db.connect((err) => {
 app.use(express.json())
 
 // U S U Á R I O //
-app.post('/cadastro', (req, response) => {
+app.post('/cadastro', upload.single('foto'), (req, response) => {
   const {
     nome,
     email,
@@ -44,6 +47,7 @@ app.post('/cadastro', (req, response) => {
     anos_participacao_anteriores,
     trabalhar_no_bloco,
   } = req.body;
+
   console.log('Dados recebidos:', { nome, email, telefone, participou_anteriormente, anos_participacao_anteriores, trabalhar_no_bloco });
 
   const foto = req.file ? req.file.buffer : null;
