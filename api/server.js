@@ -27,9 +27,7 @@ const db = mysql.createConnection({
   database: dbConfig.database,
   ssl: {
     // Habilita SSL
-    rejectUnauthorized: true, // Isso força o servidor a rejeitar conexões não autorizadas
-    // Se o servidor tiver um certificado CA, você pode fornecer o certificado aqui
-    // ca: fs.readFileSync('/caminho/para/seu/ca.pem')
+    rejectUnauthorized: true, 
   },
 });
 
