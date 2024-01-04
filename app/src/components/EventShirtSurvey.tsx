@@ -22,7 +22,7 @@ export function EventShirtSurvey() {
 
   const obterResultados = async () => {
     try {
-      const response = await axios.get('http://localhost:3001/resultados');
+      const response = await axios.get('https://api-ptcy.onrender.com/resultados');
       setResultados(response.data);
     } catch (error) {
       console.error('Erro ao obter resultados:', error);

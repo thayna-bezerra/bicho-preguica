@@ -66,7 +66,7 @@ const Cadastro: React.FC = () => {
     }
   
     try {
-      const response = await fetch('http://localhost:3001/cadastro', {
+      const response = await fetch('https://api-ptcy.onrender.com/cadastro', {
         method: 'POST',
         body: formData,
       });
@@ -95,7 +95,7 @@ const Cadastro: React.FC = () => {
   return (
     <div className="relative bg-cover md:flex w-full md:h-screen justify-center items-center text-white" style={{ backgroundImage: `url(${bg})` }}>
       <section className="flex flex-col w-full sm:w-11/12 md:w-10/12 lg:w-8/12 xl:w-7/12 justify-center rounded-lg bg-white bg-opacity-50 shadow-xl py-8 px-4 sm:px-8 md:px-16 relative section-border">
-        <form onSubmit={handleSubmit} action="http://localhost:3001/cadastro" method="post" encType="multipart/form-data">
+        <form onSubmit={handleSubmit} action="https://api-ptcy.onrender.com/cadastro" method="post" encType="multipart/form-data">
           <div className="flex flex-col items-center justify-center mb-8">
             <p>
               CADASTRE-SE
