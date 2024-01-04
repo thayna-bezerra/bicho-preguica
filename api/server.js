@@ -25,6 +25,7 @@ const db = mysql.createConnection({
   user: dbConfig.user,
   password: dbConfig.password,
   database: dbConfig.database
+  insecureAuth: true,
 });
 
 db.connect((err) => {
