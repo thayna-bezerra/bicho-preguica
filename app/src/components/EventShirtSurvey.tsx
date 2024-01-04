@@ -31,7 +31,7 @@ export function EventShirtSurvey() {
 
   const handleVoto = async () => {
     try {
-      await axios.post('http://localhost:3001/votar', { opcao: voto });
+      await axios.post('https://api-ptcy.onrender.com/votar', { opcao: voto });
       obterResultados();
       setVotou(true);
     } catch (error) {
