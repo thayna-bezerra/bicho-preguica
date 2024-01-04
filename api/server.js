@@ -1,7 +1,7 @@
-const express = require('express');
-const cors = require('cors');
-const mysql = require('mysql');
-const multer = require('multer');
+const express = require("express");
+const cors = require("cors");
+const mysql = require("mysql");
+const multer = require("multer");
 const app = express();
 const port = 3001;
 
@@ -11,7 +11,7 @@ app.use(express.json());
 const storage = multer.memoryStorage(); // Salvar na memória, você pode personalizar o armazenamento conforme necessário
 const upload = multer({ storage: storage });
 
-require('dotenv').config();
+require("dotenv").config();
 
 const dbConfig = {
   host: process.env.DB_HOST,
@@ -25,21 +25,26 @@ const db = mysql.createConnection({
   user: dbConfig.user,
   password: dbConfig.password,
   database: dbConfig.database,
-  insecureAuth: true,
+  ssl: {
+    // Habilita SSL
+    rejectUnauthorized: true, // Isso força o servidor a rejeitar conexões não autorizadas
+    // Se o servidor tiver um certificado CA, você pode fornecer o certificado aqui
+    // ca: fs.readFileSync('/caminho/para/seu/ca.pem')
+  },
 });
 
 db.connect((err) => {
   if (err) {
-    console.error('Erro ao conectar ao banco de dados:', err);
+    console.error("Erro ao conectar ao banco de dados:", err);
   } else {
-    console.log('Conectado ao banco de dados MySQL');
+    console.log("Conectado ao banco de dados MySQL");
   }
 });
 
-app.use(express.json())
+app.use(express.json());
 
 // U S U Á R I O //
-app.post('/cadastro', upload.single('foto'), (req, response) => {
+app.post("/cadastro", upload.single("foto"), (req, response) => {
   const {
     nome,
     email,
@@ -49,52 +54,70 @@ app.post('/cadastro', upload.single('foto'), (req, response) => {
     trabalhar_no_bloco,
   } = req.body;
 
-  console.log('Dados recebidos:', { nome, email, telefone, participou_anteriormente, anos_participacao_anteriores, trabalhar_no_bloco });
+  console.log("Dados recebidos:", {
+    nome,
+    email,
+    telefone,
+    participou_anteriormente,
+    anos_participacao_anteriores,
+    trabalhar_no_bloco,
+  });
 
   const foto = req.file ? req.file.buffer : null;
 
   db.query(
-    'INSERT INTO usuarios (nome, email, telefone, participou_anteriormente, anos_participacao_anteriores, trabalhar_no_bloco, foto) VALUES (?, ?, ?, ?, ?, ?, ?)',
-    [nome, email, telefone, participou_anteriormente, anos_participacao_anteriores, trabalhar_no_bloco, foto],
+    "INSERT INTO usuarios (nome, email, telefone, participou_anteriormente, anos_participacao_anteriores, trabalhar_no_bloco, foto) VALUES (?, ?, ?, ?, ?, ?, ?)",
+    [
+      nome,
+      email,
+      telefone,
+      participou_anteriormente,
+      anos_participacao_anteriores,
+      trabalhar_no_bloco,
+      foto,
+    ],
     (err, result) => {
       if (err) {
         console.error(err);
-        response.status(500).send('Erro no servidor');
+        response.status(500).send("Erro no servidor");
       } else {
-        console.log('Cadastro realizado com sucesso! :)');
-        response.send('Cadastro realizado com sucesso!');
-        console.log('Dados recebidos no backend:', req.body);
+        console.log("Cadastro realizado com sucesso! :)");
+        response.send("Cadastro realizado com sucesso!");
+        console.log("Dados recebidos no backend:", req.body);
       }
     }
   );
 });
 
 // E N Q U E T E //
-app.get('/resultados', (req, res) => {
+app.get("/resultados", (req, res) => {
   // Obter resultados da enquete
-  db.query('SELECT opcao, COUNT(*) as quantidade FROM votos GROUP BY opcao', (err, results) => {
-    if (err) {
-      console.error('Erro ao obter resultados do banco de dados:', err);
-      res.status(500).send('Erro interno do servidor');
-    } else {
-      const resultados = {};
-      results.forEach((row) => {
-        resultados[row.opcao] = row.quantidade;
-      });
-      res.json(resultados);
+  db.query(
+    "SELECT opcao, COUNT(*) as quantidade FROM votos GROUP BY opcao",
+    (err, results) => {
+      if (err) {
+        console.error("Erro ao obter resultados do banco de dados:", err);
+        res.status(500).send("Erro interno do servidor");
+      } else {
+        const resultados = {};
+        results.forEach((row) => {
+          resultados[row.opcao] = row.quantidade;
+        });
+        res.json(resultados);
+      }
     }
-  });
+  );
 });
 
-app.post('/votar', (req, res) => {
+app.post("/votar", (req, res) => {
   // Adicionar novo voto
   const { opcao } = req.body;
-  db.query('INSERT INTO votos (opcao) VALUES (?)', [opcao], (err) => {
+  db.query("INSERT INTO votos (opcao) VALUES (?)", [opcao], (err) => {
     if (err) {
-      console.error('Erro ao adicionar voto ao banco de dados:', err);
-      res.status(500).send('Erro interno do servidor');
+      console.error("Erro ao adicionar voto ao banco de dados:", err);
+      res.status(500).send("Erro interno do servidor");
     } else {
-      res.status(200).send('Voto adicionado com sucesso');
+      res.status(200).send("Voto adicionado com sucesso");
     }
   });
 });
