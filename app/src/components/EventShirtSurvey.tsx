@@ -21,26 +21,23 @@ export function EventShirtSurvey() {
   };
 
   useEffect(() => {
+    const votoFlag = localStorage.getItem('voto');
     const userId = localStorage.getItem('telefone');
-    console.log("Tem chave?", userId)
     
     if (userId) {
       setBotaoHabilitado(true)
-      console.log("entrou")
-    } 
+    } else {
+      setBotaoHabilitado(false)
+    }
+    
+    if (votoFlag){
+      setVotou(true)
+    } else {
+      setVotou(false)
+    }
     
     obterResultados();
   }, [])
-
-  /* 
-  useEffect(() => {
-    const userId = localStorage.getItem('telefone');
-    if (userId) {
-      setBotaoHabilitado(false);
-    } else {
-      setBotaoHabilitado (true);
-    }
-  }, [votou]);*/
 
   const obterResultados = async () => {
     try {
@@ -77,9 +74,15 @@ export function EventShirtSurvey() {
     } 
     
     try {
-      await axios.post('https://api-ptcy.onrender.com/votar', { opcao: voto });
-      obterResultados();
-      setVotou(true);
+      const result = await axios.post('https://api-ptcy.onrender.com/votar', { opcao: voto });
+      if(result){
+        localStorage.setItem('voto', voto);
+        obterResultados();
+        setVotou(true);
+        setVoto('');
+      } else {
+        alert("Erro ao realizar voto. Tente novamente.")
+      }
     } catch (error) {
       console.error('Erro ao enviar voto:', error);
     }
@@ -127,7 +130,7 @@ export function EventShirtSurvey() {
           className={`rounded-full m-4 px-8 py-2 font-bold text-sm md:text-lg uppercase text-white ${
             votou ? 'bg-gray-500' : 'bg-pink-bp'
           }`}
-          disabled={!botaoHabilitado || !voto}
+          disabled={!botaoHabilitado || voto.length === 0 || votou}
         >
           {votou ? 'Voto Confirmado' : 'Confirmar escolha'}
         </button>

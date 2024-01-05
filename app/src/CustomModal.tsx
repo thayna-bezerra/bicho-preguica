@@ -45,14 +45,14 @@ const CustomModal: React.FC<CustomModalProps> = ({ isOpen, onClose }) => {
               Esperamos que você se divirta em nosso bloco!
             </p>
             <div className="mt-4 text-center">
-                <Link to="/">
-                    <button
-                        onClick={onClose}
-                        className="mr-3 px-4 py-2 font-semibold text-white bg-purple-bp opacity-70 rounded hover:bg-blue-bp focus:outline-none focus:ring focus:ring-blue-200"
-                    >
-                        Voltar para Tela Principal
-                    </button>
-                </Link>
+              <Link to="/">
+                  <button
+                      onClick={onClose}
+                      className="mr-3 px-4 py-2 font-semibold text-white bg-purple-bp opacity-70 rounded hover:bg-blue-bp focus:outline-none focus:ring focus:ring-blue-200"
+                  >
+                      Voltar para Tela Principal
+                  </button>
+              </Link>
             </div>
           </div>
         </div>
