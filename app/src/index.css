@@ -7,7 +7,6 @@
 
 body {
   @apply bg-gray-200; 
-  overflow-x: hidden;
 }
 
 html{
@@ -35,14 +34,6 @@ li.cursor-pointer.open .arrow-icon {
   transform: rotate(180deg);
 }
 
-.slick-prev:before {
-  content: url("../assets/arrow.svg");
-}
-
-.slick-next:before {
-  content: url("../assets/arrow.svg");
-}
-
 .slick-slider {
   @apply relative;
 }
@@ -66,6 +57,7 @@ li.cursor-pointer.open .arrow-icon {
 
 .slick-dots {
   @apply flex justify-center -mt-20 mb-8;
+  position: static !important; 
 }
 
 .slick-dots li {
