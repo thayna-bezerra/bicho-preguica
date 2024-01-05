@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import CustomModal from '../CustomModal'
 
 export function EventShirtSurvey() {
   const [opcoesAbada, setOpcoesAbada] = useState(['Abadá 1', 'Abadá 2', 'Abadá 3', 'Abadá 4']);
@@ -8,6 +9,9 @@ export function EventShirtSurvey() {
   const [resultados, setResultados] = useState<Record<string, number>>({});
   const [imagemSelecionada, setImagemSelecionada] = useState<string | null>(null);
   const [votou, setVotou] = useState(false);
+
+  const [botaoHabilitado, setBotaoHabilitado] = useState(!localStorage.getItem('email')); // Inicialmente habilitado se não houver userId no localStorage
+  const [modalOpen, setModalOpen] = useState(false)
 
   const imagensOpcoesAbada: Record<string, string> = {
     'Abadá 1': "https://www.trindadeuniformes.com.br/wp-content/uploads/2021/12/produto-abada-carnaval-02.png",
@@ -18,7 +22,17 @@ export function EventShirtSurvey() {
 
   useEffect(() => {
     obterResultados();
-  }, []);
+  })
+
+  /* 
+  useEffect(() => {
+    const userId = localStorage.getItem('email');
+    if (userId) {
+      setBotaoHabilitado(false);
+    } else {
+      setBotaoHabilitado (true);
+    }
+  }, [votou]);*/
 
   const obterResultados = async () => {
     try {
@@ -28,8 +42,29 @@ export function EventShirtSurvey() {
       console.error('Erro ao obter resultados:', error);
     }
   };
+  
+  const openModal = () => {
+    setModalOpen(true)
+  }
+
+  const closeModal = () => {
+    setModalOpen(false)
+  }
+
 
   const handleVoto = async () => {
+    if(!voto) {
+      alert("Selecione uma opção de abadá antes de confirmar o voto.");
+      return;
+    }  
+    // Verificar se o usuário está cadastrado no localStorage
+    const userId = localStorage.getItem('email');
+    if (!userId) {
+      // Se o usuário não estiver cadastrado, exibir o modal
+      setModalOpen(true);
+      return;
+    }
+    
     try {
       await axios.post('https://api-ptcy.onrender.com/votar', { opcao: voto });
       obterResultados();
@@ -64,7 +99,11 @@ export function EventShirtSurvey() {
               className={`sm:w-52 sm:h-52 ${imagemSelecionada === opcao ? 'border-8 rounded-md border-pink-bp' : ''}`}
               disabled={votou}
             >
-              <img src={imagensOpcoesAbada[opcao]} alt={`Imagem ${opcao}`} className="w-full h-full" />
+              <img
+                src={imagensOpcoesAbada[opcao]}
+                alt={`Imagem ${opcao}`}
+                className={`w-full h-full ${imagemSelecionada === opcao ? 'selecionado' : ''}`}
+              />
             </button>
             <p className="mt-2 text-center text-white">{opcao}</p>
           </li>
@@ -77,8 +116,7 @@ export function EventShirtSurvey() {
           className={`rounded-full m-4 px-8 py-2 font-bold text-sm md:text-lg uppercase text-white ${
             votou ? 'bg-gray-500' : 'bg-pink-bp'
           }`}
-
-          disabled={votou}
+          disabled={!botaoHabilitado || !voto}
         >
           {votou ? 'Voto Confirmado' : 'Confirmar escolha'}
         </button>
@@ -98,6 +136,8 @@ export function EventShirtSurvey() {
           </ResponsiveContainer>
         </>
       )}
+
+        <CustomModal isOpen={modalOpen} onClose={closeModal} />
     </div>
   );
 }

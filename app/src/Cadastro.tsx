@@ -76,7 +76,6 @@ const Cadastro: React.FC = () => {
       if (response.ok) {
         //const responseData = await response.json();
         //const { userId } = responseData;
-
         //localStorage.setItem('userId', userId);
         //setUserId(userId);
         

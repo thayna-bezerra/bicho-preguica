@@ -78,9 +78,8 @@ app.post("/cadastro", upload.single("foto"), (req, response) => {
         console.error(err);
         response.status(500).send("Erro no servidor");
       } else {
+        console.log("Cadastro realizado com sucesso! :)");
         //const userId = result.insertId;
-        console.log("Cadastro realizado com sucesso! :)", "ID do usuário:", userId);
-        
         //response.status(200).json({ userId });
       }
     }
