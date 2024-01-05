@@ -10,7 +10,7 @@ export function EventShirtSurvey() {
   const [imagemSelecionada, setImagemSelecionada] = useState<string | null>(null);
   const [votou, setVotou] = useState(false);
 
-  const [botaoHabilitado, setBotaoHabilitado] = useState(!localStorage.getItem('telefone')); // Inicialmente habilitado se não houver userId no localStorage
+  const [botaoHabilitado, setBotaoHabilitado] = useState(true); // Inicialmente habilitado se não houver userId no localStorage
   const [modalOpen, setModalOpen] = useState(false)
 
   const imagensOpcoesAbada: Record<string, string> = {
@@ -21,8 +21,16 @@ export function EventShirtSurvey() {
   };
 
   useEffect(() => {
+    const userId = localStorage.getItem('telefone');
+    console.log("Tem chave?", userId)
+    
+    if (userId) {
+      setBotaoHabilitado(true)
+      console.log("entrou")
+    } 
+    
     obterResultados();
-  })
+  }, [])
 
   /* 
   useEffect(() => {
@@ -59,11 +67,14 @@ export function EventShirtSurvey() {
     }  
     // Verificar se o usuário está cadastrado no localStorage
     const userId = localStorage.getItem('telefone');
-    if (!userId) {
+    console.log("Tem chave? ", userId)
+    
+    if (userId === null) {
       // Se o usuário não estiver cadastrado, exibir o modal
+      console.log("esta entrando")
       setModalOpen(true);
       return;
-    }
+    } 
     
     try {
       await axios.post('https://api-ptcy.onrender.com/votar', { opcao: voto });
