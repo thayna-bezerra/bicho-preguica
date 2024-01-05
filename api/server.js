@@ -26,7 +26,6 @@ const db = mysql.createConnection({
   password: dbConfig.password,
   database: dbConfig.database,
   ssl: {
-    // Habilita SSL
     rejectUnauthorized: true, 
   },
 });
@@ -79,9 +78,10 @@ app.post("/cadastro", upload.single("foto"), (req, response) => {
         console.error(err);
         response.status(500).send("Erro no servidor");
       } else {
-        console.log("Cadastro realizado com sucesso! :)");
-        response.send("Cadastro realizado com sucesso!");
-        console.log("Dados recebidos no backend:", req.body);
+        //const userId = result.insertId;
+        console.log("Cadastro realizado com sucesso! :)", "ID do usuário:", userId);
+        
+        //response.status(200).json({ userId });
       }
     }
   );

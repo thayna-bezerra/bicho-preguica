@@ -12,12 +12,13 @@ const Cadastro: React.FC = () => {
   const [participouAnteriormente, setParticipouAnteriormente] = useState(false);
   const [anosParticipacaoAnteriores, setAnosParticipacaoAnteriores] = useState('');
   const [trabalharNoBloco, setTrabalharNoBloco] = useState('');
-  const [foto, setFoto] = useState<File | null>(null); 
-  {/**const [foto, setFoto] = useState(null);*/}
 
+  const [foto, setFoto] = useState<File | null>(null); 
   const [nomeArquivo, setNomeArquivo] = useState('');
 
   const [modalOpen, setModalOpen] = useState(false)
+
+  //const [userId, setUserId] = useState(null); // Estado para armazenar o ID do usuário
 
   const openModal = () => {
     setModalOpen(true)
@@ -73,8 +74,26 @@ const Cadastro: React.FC = () => {
       
   
       if (response.ok) {
+        //const responseData = await response.json();
+        //const { userId } = responseData;
+
+        //localStorage.setItem('userId', userId);
+        //setUserId(userId);
+        
+        localStorage.setItem('telefone', telefone);
+        console.log(localStorage);
+        
         openModal()
         console.log('Cadastro realizado com sucesso!');
+
+        console.log("Dados recebidos:", {
+          nome,
+          email,
+          telefone,
+          participouAnteriormente,
+          anosParticipacaoAnteriores,
+          trabalharNoBloco,
+        });
         // Resetar o formulário após o envio
         setNome('');
         setEmail('');
@@ -110,6 +129,7 @@ const Cadastro: React.FC = () => {
             <input 
               type="text" 
               placeholder="Insira o seu nome" 
+              required
               value={nome} 
               onChange={(e) => setNome(e.target.value)} 
               className="mt-2 w-full px-3 py-2 rounded-md bg-white text-gray-800  focus:outline-none focus:ring focus:ring-pink-bp"
@@ -122,6 +142,7 @@ const Cadastro: React.FC = () => {
               <input 
                 type="email" 
                 placeholder="Insira o seu e-mail" 
+                required
                 value={email} 
                 onChange={(e) => setEmail(e.target.value)} 
                 className="w-full mt-2 px-3 py-2 rounded-md bg-white text-gray-800   focus:outline-none focus:ring focus:ring-pink-bp"
@@ -190,6 +211,7 @@ const Cadastro: React.FC = () => {
               </label>
               <select 
                 value={trabalharNoBloco} 
+                required
                 onChange={(e) => setTrabalharNoBloco(e.target.value)}
                 className="w-full mt-2 px-3 py-2 rounded-md bg-white text-gray-500"
               >
