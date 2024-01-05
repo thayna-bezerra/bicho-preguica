@@ -10,7 +10,7 @@ export function EventShirtSurvey() {
   const [imagemSelecionada, setImagemSelecionada] = useState<string | null>(null);
   const [votou, setVotou] = useState(false);
 
-  const [botaoHabilitado, setBotaoHabilitado] = useState(!localStorage.getItem('email')); // Inicialmente habilitado se não houver userId no localStorage
+  const [botaoHabilitado, setBotaoHabilitado] = useState(!localStorage.getItem('telefone')); // Inicialmente habilitado se não houver userId no localStorage
   const [modalOpen, setModalOpen] = useState(false)
 
   const imagensOpcoesAbada: Record<string, string> = {
@@ -26,7 +26,7 @@ export function EventShirtSurvey() {
 
   /* 
   useEffect(() => {
-    const userId = localStorage.getItem('email');
+    const userId = localStorage.getItem('telefone');
     if (userId) {
       setBotaoHabilitado(false);
     } else {
@@ -42,7 +42,7 @@ export function EventShirtSurvey() {
       console.error('Erro ao obter resultados:', error);
     }
   };
-  
+
   const openModal = () => {
     setModalOpen(true)
   }
@@ -58,7 +58,7 @@ export function EventShirtSurvey() {
       return;
     }  
     // Verificar se o usuário está cadastrado no localStorage
-    const userId = localStorage.getItem('email');
+    const userId = localStorage.getItem('telefone');
     if (!userId) {
       // Se o usuário não estiver cadastrado, exibir o modal
       setModalOpen(true);

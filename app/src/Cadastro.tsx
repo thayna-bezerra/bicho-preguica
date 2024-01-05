@@ -18,8 +18,6 @@ const Cadastro: React.FC = () => {
 
   const [modalOpen, setModalOpen] = useState(false)
 
-  //const [userId, setUserId] = useState(null); // Estado para armazenar o ID do usuário
-
   const openModal = () => {
     setModalOpen(true)
   }
@@ -72,19 +70,13 @@ const Cadastro: React.FC = () => {
         body: formData,
       });
       
-  
       if (response.ok) {
-        //const responseData = await response.json();
-        //const { userId } = responseData;
-        //localStorage.setItem('userId', userId);
-        //setUserId(userId);
-        
+        openModal()
+
         localStorage.setItem('telefone', telefone);
         console.log(localStorage);
         
-        openModal()
         console.log('Cadastro realizado com sucesso!');
-
         console.log("Dados recebidos:", {
           nome,
           email,
@@ -93,7 +85,7 @@ const Cadastro: React.FC = () => {
           anosParticipacaoAnteriores,
           trabalharNoBloco,
         });
-        // Resetar o formulário após o envio
+        
         setNome('');
         setEmail('');
         setTelefone('');
