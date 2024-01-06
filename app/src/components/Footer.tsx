@@ -12,7 +12,10 @@ export function Footer() {
             <a href="https://www.facebook.com/bichopregui" className="w-12 h-12">
               <img src={fb} alt="Facebook"/>
             </a>
-            <a href="https://www.instagram.com/bichopreguica.ofc?igsh=MWNoYTBqY3BxNDVtZw%3D%3D&utm_source=qr" className="w-12 h-12">
+            <a 
+              href="https://www.instagram.com/bichopreguica.ofc" 
+              className="w-12 h-12"
+            >
               <img src={insta} alt="Instagram"/>
             </a>
           </div>
