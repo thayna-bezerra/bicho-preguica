@@ -3,6 +3,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import patrocinador from "../assets/patrocinador.png"
+import p1 from "../assets/patrocinadores/p1.png"
 
 export function Sponsors() {
     const sliderPatrocinadores = {
@@ -50,19 +51,19 @@ export function Sponsors() {
 
                 <Slider className="order-1 md:order-2 flex justify-around md:col-span-2 p-4 gap-4" {...sliderPatrocinadores}>
                     <div className="flex justify-around md:col-span-2 p-4 gap-4">
-                        <img className="w-full h-full" src={patrocinador} alt="patrocinador1" />
+                        <img className="w-full h-full" src={p1} alt="p1" />
                     </div>
                     <div className="flex justify-around md:col-span-2 p-4 gap-4">
-                        <img className="w-full h-full" src={patrocinador} alt="patrocinador1" />
+                        <img className="w-full h-full" src={p1} alt="p1" />
                     </div>
                     <div className="flex justify-around md:col-span-2 p-4 gap-4">
-                        <img className="w-full h-full" src={patrocinador} alt="patrocinador1" />
+                        <img className="w-full h-full" src={p1} alt="p1" />
                     </div>
                     <div className="flex justify-around md:col-span-2 p-4 gap-4">
-                        <img className="w-full h-full" src={patrocinador} alt="patrocinador1" />
+                        <img className="w-full h-full" src={p1} alt="p1" />
                     </div>
                     <div className="flex justify-around md:col-span-2 p-4 gap-4">
-                        <img className="w-full h-full" src={patrocinador} alt="patrocinador1" />
+                        <img className="w-full h-full" src={p1} alt="p1" />
                     </div>
                 </Slider> 
             </div>
