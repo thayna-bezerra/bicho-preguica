@@ -6,13 +6,13 @@ export function Footer() {
     return (
         <div className="flex flex-col items-center justify-between pt-20 pb-10 md:mx-16 md:flex-row">
           <div className="flex gap-10 md:self-end md:w-full">
-            <a href="https://api.whatsapp.com/send?phone=+5599%208405-0108&text=Olá%2C+tudo+bom%3F+" className="w-12 h-12">
+            <a href="https://wa.me/message/HET7PQ5LMNBRF1" className="w-12 h-12">
               <img src={wpp} alt="WhatsApp"/>
             </a>
-            <a href="#" className="w-12 h-12">
+            <a href="https://www.facebook.com/bichopregui" className="w-12 h-12">
               <img src={fb} alt="Facebook"/>
             </a>
-            <a href="#" className="w-12 h-12">
+            <a href="https://www.instagram.com/bichopreguica.ofc?igsh=MWNoYTBqY3BxNDVtZw%3D%3D&utm_source=qr" className="w-12 h-12">
               <img src={insta} alt="Instagram"/>
             </a>
           </div>
