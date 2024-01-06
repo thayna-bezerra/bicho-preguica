@@ -1,27 +1,36 @@
-
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from "../assets/logo.png"
 import menu from "../assets/icon-menu.png"
 
 export function Header() {
+    const [menuState, setMenuState] = useState('menu');
+  
 
-    function Menu(e: React.MouseEvent<HTMLImageElement>) {
-        const list = document.querySelector("ul");
-        e.currentTarget.name === "menu"
-        ? ((e.currentTarget.name = "close"),
-            list?.classList.add("top-[80px]"),
-            list?.classList.add("opacity-100"))
-        : ((e.currentTarget.name = "menu"),
-            list?.classList.remove("top-[80px]"),
-            list?.classList.remove("opacity-100"));
-    }
+    function toggleMenu() {
+        const list = document.querySelector('ul');
+        if (menuState === 'menu') {
+          setMenuState('close');
+          list?.classList.add('top-[80px]', 'opacity-100');
+        } else {
+          setMenuState('menu');
+          list?.classList.remove('top-[80px]', 'opacity-100');
+        }
+      }
+    
 
     return (
         <div className="bg-white h-24 w-full px-4 md:px-20 flex items-center justify-between">
             <div className="order-1 md:order-2">
                 <div> 
                     <span className="w-[32px] cursor-pointer md:hidden block">
-                    <img onClick={Menu} src={menu} alt="icon menu" />
+                    
+                    <img
+                    onClick={toggleMenu}
+                    src={menu}
+                    alt="icon menu"
+                    className={menuState === 'close' ? 'menu-open' : ''}
+                    />
                     </span>
                 </div>
                 
