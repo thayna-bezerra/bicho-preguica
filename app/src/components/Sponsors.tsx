@@ -32,7 +32,7 @@ export function Sponsors() {
     }
   
     return (
-        <div className="bg-pink-bp h-auto py-8">
+        <div className="bg-purple-bp h-auto py-8">
             <p className="uppercase text-lg md:text-2xl p-4 font-bold text-white">
                 Patrocinadores oficiais
             </p>
@@ -43,7 +43,7 @@ export function Sponsors() {
                         onClick={() => window.location.href='https://api.whatsapp.com/send?phone=+5599%209631-8324&text=Olá%2C+tudo+bom%3F+Eu+gostaria+de+ser+um+patrocinador+do+%2ABicho+Preguiça%2A%21+🦥🎉'} 
                         className="blinking-button m-5 uppercase md:font-extrabold md:text-xl font-bold text-base w-full border-none p-3 py-7 bg-yellow-bp text-white border-2"
                     >
-                        <span className="text-xs md:font-xl font-bold text-pink-bp">Clique aqui</span><br />
+                        <span className="text-xs md:font-xl font-bold text-purple-bp">Clique aqui</span><br />
                             Seja um<br/> patrocinador
                     </button>
                 </div>

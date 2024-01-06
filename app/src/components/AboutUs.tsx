@@ -3,6 +3,9 @@ import sobre from "../assets/sobre-nos.png"
 export function AboutUs() {
     return (
         <div id="sobre" className="bg-blue-bp h-auto flex flex-col md:flex-row justify-center items-center">
+            <div className="w-full">
+                <img className="max-w-full h-auto object-cover" src={sobre} alt="sobre nos" />
+            </div>
             <div className="text-white text-center py-6">
                 <p className="uppercase text-lg md:text-2xl pb-5 font-bold text-white">
                     Sobre nós
@@ -16,9 +19,6 @@ export function AboutUs() {
                     <br/><br/>
                     <span className="flex font-semibold justify-center text-center">É hora de celebrar juntos e fazer deste bloco um espetáculo inesquecível para todos!</span>
                 </p>
-            </div>
-            <div className="w-full">
-                <img className="max-w-full h-auto object-cover" src={sobre} alt="sobre nos" />
             </div>
       </div>
     )
