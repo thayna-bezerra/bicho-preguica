@@ -21,7 +21,7 @@ export function Footer() {
           </div>
 
           <button 
-              onClick={() => window.open('https://api.whatsapp.com/send?phone=+5599%208405-0108&text=Olá%2C+tudo+bom%3F+Eu+gostaria+de+ser+um+patrocinador+do+%2ABicho+Preguiça%2A%21+🦥🎉')}
+              onClick={() => window.open('https://w.app/CZbc23')}
               className="bg-yellow-bp text-white rounded-md uppercase text-base font-bold md:w-full p-4 mt-8"
             >
               Seja um patrocinador
