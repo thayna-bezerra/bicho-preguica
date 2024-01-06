@@ -1,14 +1,18 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-import mascara from './assets/mascara.png'
 
 interface CustomModalProps {
   isOpen: boolean
   onClose: () => void
+  imagem: any
+  title: string
+  description: string
+  textBtn: string
+  linkRota: string
 }
 
-const CustomModal: React.FC<CustomModalProps> = ({ isOpen, onClose }) => {
+const CustomModal: React.FC<CustomModalProps> = ({ isOpen, onClose, imagem, title, description, textBtn, linkRota }) => {
   if (!isOpen) {
     return null
   }
@@ -29,7 +33,7 @@ const CustomModal: React.FC<CustomModalProps> = ({ isOpen, onClose }) => {
           <div className="bg-pink-bp">
             <div className="px-4 py-4 sm:px-6">
               <h3 className="text-lg leading-6 text-center font-bold text-white">
-                Seu cadastro foi realizado com sucesso!
+                {title}
               </h3>
             </div>
           </div>
@@ -37,20 +41,20 @@ const CustomModal: React.FC<CustomModalProps> = ({ isOpen, onClose }) => {
           <div className="bg-white px-4 py-5 sm:p-6">
             <div className="flex items-center justify-center pb-3">
               <img
-                src={mascara}
+                src={imagem}
                 alt="Imagem de confirmação"
               />
             </div>
             <p className="text-gray-700 text-center">
-              Esperamos que você se divirta em nosso bloco!
+              {description}
             </p>
             <div className="mt-4 text-center">
-              <Link to="/">
+              <Link to={linkRota}>
                   <button
                       onClick={onClose}
                       className="mr-3 px-4 py-2 font-semibold text-white bg-purple-bp opacity-70 rounded hover:bg-blue-bp focus:outline-none focus:ring focus:ring-blue-200"
                   >
-                      Voltar para Tela Principal
+                    {textBtn}
                   </button>
               </Link>
             </div>

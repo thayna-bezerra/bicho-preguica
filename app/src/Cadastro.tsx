@@ -4,6 +4,7 @@ import CustomModal from './CustomModal'
 
 import upload from "./assets/file.png"
 import bg from "./assets/bg.png"
+import mascara from './assets/mascara.png'
 
 const Cadastro: React.FC = () => {
   const [nome, setNome] = useState('');
@@ -85,7 +86,7 @@ const Cadastro: React.FC = () => {
           anosParticipacaoAnteriores,
           trabalharNoBloco,
         });
-        
+
         setNome('');
         setEmail('');
         setTelefone('');
@@ -257,7 +258,15 @@ const Cadastro: React.FC = () => {
           </button>
           
         </form>
-        <CustomModal isOpen={modalOpen} onClose={closeModal} />
+        <CustomModal 
+          isOpen={modalOpen} 
+          onClose={closeModal} 
+          imagem={mascara}
+          title={"Seu cadastro foi realizado com sucesso!"} 
+          description={"Esperamos que você se divirta em nosso bloco!"}
+          textBtn={"Voltar para Tela Principal"}
+          linkRota={"/"}
+        />
       </section>
     </div>
   );

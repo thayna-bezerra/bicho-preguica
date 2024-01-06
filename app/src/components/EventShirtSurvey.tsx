@@ -2,9 +2,15 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import CustomModal from '../CustomModal'
+import peoples from '../assets/peoples.svg'
+import abada1 from '../assets/1.jpeg'
+import abada2 from '../assets/2.jpeg'
+import abada3 from '../assets/3.jpeg'
+import abada4 from '../assets/4.jpeg'
+
 
 export function EventShirtSurvey() {
-  const [opcoesAbada, setOpcoesAbada] = useState(['Abadá 1', 'Abadá 2', 'Abadá 3', 'Abadá 4']);
+  const [opcoesAbada, setOpcoesAbada] = useState(['Abadá Azul', 'Abadá Rosa', 'Abadá Amarelo', 'Abadá Rosa2']);
   const [voto, setVoto] = useState('');
   const [resultados, setResultados] = useState<Record<string, number>>({});
   const [imagemSelecionada, setImagemSelecionada] = useState<string | null>(null);
@@ -14,10 +20,10 @@ export function EventShirtSurvey() {
   const [modalOpen, setModalOpen] = useState(false)
 
   const imagensOpcoesAbada: Record<string, string> = {
-    'Abadá 1': "https://www.trindadeuniformes.com.br/wp-content/uploads/2021/12/produto-abada-carnaval-02.png",
-    'Abadá 2': "https://www.trindadeuniformes.com.br/wp-content/uploads/2021/12/produto-abada-carnaval-03.png",
-    'Abadá 3': "https://www.trindadeuniformes.com.br/wp-content/uploads/2021/12/produto-abada-carnaval-02.png",
-    'Abadá 4': "https://www.trindadeuniformes.com.br/wp-content/uploads/2021/12/produto-abada-carnaval-03.png",
+    'Abadá Azul': abada1,
+    'Abadá Rosa': abada2,
+    'Abadá Amarelo': abada3,
+    'Abadá Rosa2': abada4,
   };
 
   useEffect(() => {
@@ -130,7 +136,7 @@ export function EventShirtSurvey() {
           className={`rounded-full m-4 px-8 py-2 font-bold text-sm md:text-lg uppercase text-white ${
             votou ? 'bg-gray-500' : 'bg-pink-bp'
           }`}
-          disabled={!botaoHabilitado || voto.length === 0 || votou}
+          disabled={votou}
         >
           {votou ? 'Voto Confirmado' : 'Confirmar escolha'}
         </button>
@@ -151,7 +157,15 @@ export function EventShirtSurvey() {
         </>
       )}
 
-        <CustomModal isOpen={modalOpen} onClose={closeModal} />
+        <CustomModal 
+          isOpen={modalOpen} 
+          onClose={closeModal} 
+          imagem={peoples}
+          title={"Se cadastre em nosso bloco!"} 
+          description={"Faça seu cadastro para escolher um abadá!"}
+          textBtn={"Cadastre-se"}
+          linkRota={"/cadastro"}
+        />
     </div>
   );
 }
