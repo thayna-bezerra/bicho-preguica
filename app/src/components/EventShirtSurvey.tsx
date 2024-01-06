@@ -3,10 +3,10 @@ import axios from 'axios';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import CustomModal from '../CustomModal'
 import peoples from '../assets/peoples.svg'
-import abada1 from '../assets/1.jpeg'
-import abada2 from '../assets/2.jpeg'
-import abada3 from '../assets/3.jpeg'
-import abada4 from '../assets/4.jpeg'
+import abada1 from '../assets/1.png'
+import abada2 from '../assets/2.png'
+import abada3 from '../assets/3.png'
+import abada4 from '../assets/4.png'
 
 
 export function EventShirtSurvey() {
@@ -116,7 +116,7 @@ export function EventShirtSurvey() {
                   setImagemSelecionada(opcao);
                 }
               }}
-              className={`sm:w-52 sm:h-52 ${imagemSelecionada === opcao ? 'border-8 rounded-md border-pink-bp' : ''}`}
+              className={`sm:w-72 sm:h-62 ${imagemSelecionada === opcao ? 'border-8 rounded-md border-pink-bp' : ''}`}
               disabled={votou}
             >
               <img
