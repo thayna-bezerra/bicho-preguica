@@ -13,9 +13,7 @@ const Cadastro: React.FC = () => {
   const [participouAnteriormente, setParticipouAnteriormente] = useState(false);
   const [anosParticipacaoAnteriores, setAnosParticipacaoAnteriores] = useState('');
   const [trabalharNoBloco, setTrabalharNoBloco] = useState('');
-
   const [foto, setFoto] = useState<File | null>(null); 
-  const [nomeArquivo, setNomeArquivo] = useState('');
 
   const [modalOpen, setModalOpen] = useState(false)
 
@@ -32,23 +30,30 @@ const Cadastro: React.FC = () => {
   };
 
   const handleFotoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      setFoto(file);
-    }
-  };
-  
-  {/**
-  const handleFotoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const arquivo = e.target.files;
-    if (arquivo && arquivo.length > 0) {
-      const nomeDoArquivo = arquivo[0].name;
-      setNomeArquivo(nomeDoArquivo);
+    
+    const files = e.target.files;
 
-      setFoto(arquivo[0])
+    if (files && files.length > 0 ) {
+      Array.from(files).forEach((file) => {
+        // Criar um objeto URL temporário para a imagem
+        const temporaryURL = URL.createObjectURL(file);
+
+        // Criar um objeto Image
+        const img = new Image();
+
+        // Definir o URL da imagem no objeto Image
+        img.src = temporaryURL;
+
+        // Evento de carregamento da imagem
+        img.onload = function () {
+          setFoto(file);
+
+          // Limpar o objeto URL temporário após usar
+          URL.revokeObjectURL(temporaryURL);
+        };
+      });
     }
   };
- */}
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -226,11 +231,11 @@ const Cadastro: React.FC = () => {
             </div>
             <div className="w-full sm:w-2/6 relative border-dashed border-2 border-white p-4 rounded-md bg-white bg-opacity-30 cursor-pointer">
               <div className="flex items-center justify-center">
-                <img src={upload} />
+                <img src={foto ? typeof foto === "string" ? foto : URL.createObjectURL(foto) : upload} />
               </div>
 
               <p className="flex justify-center m-2 text-sm text-gray-600">
-                {nomeArquivo ? `Foto selecionada: ${nomeArquivo}` : 'Adicione sua foto aqui!'}
+                {'Adicione sua foto aqui!'}
               </p>
 
               <label
