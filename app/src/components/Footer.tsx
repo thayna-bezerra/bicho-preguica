@@ -21,7 +21,7 @@ export function Footer() {
           </div>
 
           <button 
-              onClick={() => window.open('https://w.app/CZbc23')}
+              onClick={() => window.open('https://wa.me/559984050108?text=Caro%20amigo,%20gostaria%20de%20me%20tornar%20um%20patrocinador')}
               className="bg-yellow-bp text-white rounded-md uppercase text-base font-bold md:w-full p-4 mt-8"
             >
               Seja um patrocinador

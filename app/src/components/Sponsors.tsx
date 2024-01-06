@@ -41,7 +41,7 @@ export function Sponsors() {
             <div className="grid grid-cols-1 md:grid-cols-3">
                 <div className="order-2 md:order-1 md:col-span-1 px-4 flex flex-col justify-center items-center">
                     <button 
-                        onClick={() => window.open('https://w.app/CZbc23')}
+                        onClick={() => window.open('https://wa.me/559984050108?text=Caro%20amigo,%20gostaria%20de%20me%20tornar%20um%20patrocinador')}
                         className="blinking-button m-5 uppercase md:font-extrabold md:text-xl font-bold text-base w-full border-none p-3 py-7 bg-yellow-bp text-white border-2"
                     >
                         <span className="text-xs md:font-xl font-bold text-purple-bp">Clique aqui</span><br />
