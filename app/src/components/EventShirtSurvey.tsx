@@ -161,8 +161,8 @@ export function EventShirtSurvey() {
           isOpen={modalOpen} 
           onClose={closeModal} 
           imagem={peoples}
-          title={"Se cadastre em nosso bloco!"} 
-          description={"Faça seu cadastro para escolher um abadá!"}
+          title={"Cadastre-se em nosso bloco!"} 
+          description={"Realize seu cadastro para selecionar o abadá de sua escolha!"}
           textBtn={"Cadastre-se"}
           linkRota={"/cadastro"}
         />
