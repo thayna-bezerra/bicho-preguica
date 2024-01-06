@@ -121,31 +121,18 @@ const Cadastro: React.FC = () => {
             </p>
           </div>
 
-          <div className="pb-7">
-            <label>Nome Completo:</label>
-            <input 
-              type="text" 
-              placeholder="Insira o seu nome" 
-              required
-              value={nome} 
-              onChange={(e) => setNome(e.target.value)} 
-              className="mt-2 w-full px-3 py-2 rounded-md bg-white text-gray-800  focus:outline-none focus:ring focus:ring-pink-bp"
-            />
-          </div>
-
           <div className="flex flex-col sm:flex-row gap-6 pb-9">
             <div className="w-full sm:w-4/5">
-              <label>E-mail:</label>
+              <label>Nome Completo:</label>
               <input 
-                type="email" 
-                placeholder="Insira o seu e-mail" 
+                type="text" 
+                placeholder="Insira o seu nome" 
                 required
-                value={email} 
-                onChange={(e) => setEmail(e.target.value)} 
-                className="w-full mt-2 px-3 py-2 rounded-md bg-white text-gray-800   focus:outline-none focus:ring focus:ring-pink-bp"
+                value={nome} 
+                onChange={(e) => setNome(e.target.value)} 
+                className="mt-2 w-full px-3 py-2 rounded-md bg-white text-gray-800  focus:outline-none focus:ring focus:ring-pink-bp"
               />
             </div>
-
             <div className="w-full sm:w-3/5">
               <label>Telefone para contato:</label>
               <InputMask
@@ -162,8 +149,20 @@ const Cadastro: React.FC = () => {
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-6 mb-10">
+          <div className="flex flex-col sm:flex-row gap-6 pb-9">
             <div className="w-full sm:w-4/5">
+              <label>E-mail:</label>
+              <input 
+                type="email" 
+                placeholder="Insira o seu e-mail" 
+                required
+                value={email} 
+                onChange={(e) => setEmail(e.target.value)} 
+                className="w-full mt-2 px-3 py-2 rounded-md bg-white text-gray-800   focus:outline-none focus:ring focus:ring-pink-bp"
+              />
+            </div>
+
+            <div className="w-full sm:w-3/5">
               <p className="mb-2">
                 Já participou de edições anteriores?
               </p>
@@ -201,6 +200,12 @@ const Cadastro: React.FC = () => {
                 </label>
               </div>
             </div>
+          </div>
+
+          {/** <div className="flex flex-col sm:flex-row gap-6 mb-10">
+            <div className="w-full sm:w-4/5">
+              
+            </div>
 
             <div className="w-full sm:w-3/5">
               <label className="">
@@ -216,7 +221,7 @@ const Cadastro: React.FC = () => {
                 <option value="Sim, quero ser um colaborador">Sim, quero ser um colaborador</option>
               </select>
             </div>
-          </div>
+          </div>*/}
 
           <div className="flex flex-col sm:flex-row gap-6 mb-11">
             <div className="w-full sm:w-4/6">
